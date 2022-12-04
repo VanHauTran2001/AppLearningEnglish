@@ -13,10 +13,12 @@ import android.widget.Toast;
 
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityLogInBinding;
+import com.example.appstudyenglish.model.User;
 import com.example.appstudyenglish.ui.cus_tom_dialog.CustomProgressDialog;
 import com.example.appstudyenglish.ui.log_in.dang_ky.DangKyActivity;
 import com.example.appstudyenglish.ui.log_in.lay_lai_mat_khau.CurrentPasswordActivity;
 import com.example.appstudyenglish.ui.main.MainActivity;
+import com.example.appstudyenglish.ui.quan_tri_vien.main_quan_tri_vien.MainQuanTriActivity;
 import com.example.appstudyenglish.ui.splash.SplashActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,6 +42,7 @@ public class LogInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String userID;
     private CustomProgressDialog dialog;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,20 +108,18 @@ public class LogInActivity extends AppCompatActivity {
                         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                         userID = firebaseUser.getUid();
                         firebaseDatabase = FirebaseDatabase.getInstance();
-//                        databaseReference = firebaseDatabase.getReference(userID);
-//                        databaseReference.addValueEventListener(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                member = snapshot.getValue(Member.class);
-//                                view.logInSuccess(member.getQuyen());
-//                                view.loadingStart();
-//                            }
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                            }
-//                        });
-                        logInSuccess();
+                        databaseReference = firebaseDatabase.getReference(userID);
+                        databaseReference.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                user = snapshot.getValue(User.class);
+                                logInSuccess();
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     } else {
                         binding.tvThongBao.setVisibility(View.VISIBLE);
                         binding.tvThongBao.setText("Sai email hoặc password");
@@ -129,8 +130,13 @@ public class LogInActivity extends AppCompatActivity {
 
     private void logInSuccess() {
         setLocate();
-        Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-        startActivity(intent);
+        if(user.getPermission() == 0){
+            Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+            startActivity(intent);
+        }else if(user.getPermission() == 1){
+            Intent intent = new Intent(LogInActivity.this, MainQuanTriActivity.class);
+            startActivity(intent);
+        }
         Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
         dialog.dismiss();
     }
