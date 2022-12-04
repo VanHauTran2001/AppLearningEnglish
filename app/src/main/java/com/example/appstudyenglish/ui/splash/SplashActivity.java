@@ -1,10 +1,13 @@
 package com.example.appstudyenglish.ui.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.appstudyenglish.R;
+import com.example.appstudyenglish.ui.log_in.dang_nhap.LogInActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         },1500);
     }
     private void nextActivity(){
-
+        Intent intent = new Intent(SplashActivity.this, LogInActivity.class);
+        startActivity(intent);
     }
 }
