@@ -46,9 +46,9 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_toStartOf="@+id/btnNotification"
+                    android:background="?attr/selectableItemBackground"
                     android:paddingTop="5dp"
-                    android:src="@drawable/icon_search"
-                    android:background="?attr/selectableItemBackground"/>
+                    android:src="@drawable/icon_search" />
                 <ImageView
                     android:id="@+id/btnNotification"
                     android:layout_width="40dp"

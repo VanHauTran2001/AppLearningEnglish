@@ -34,6 +34,12 @@ public class KhoaHocAdapter extends RecyclerView.Adapter<KhoaHocAdapter.KhoaHocV
         holder.binding.txtNameKH.setText(khoaHoc.getName());
         holder.binding.txtDateKH.setText(khoaHoc.getDate());
         holder.binding.txtViewer.setText(String.valueOf(khoaHoc.getViewer()));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iKhoaHoc.onCLickKhoaHoc(position,check);
+            }
+        });
     }
 
     @Override

@@ -1,20 +1,24 @@
 package com.example.appstudyenglish.model;
 
-public class KhoaHoc {
+import java.io.Serializable;
+
+public class KhoaHoc implements Serializable {
     private String maKhoaHoc;
     private int avatar;
     private String name;
     private String date;
     private int viewer;
+    private String title;
 
     public KhoaHoc(){}
 
-    public KhoaHoc(String maKhoaHoc, int avatar, String name, String date, int viewer) {
+    public KhoaHoc(String maKhoaHoc, int avatar, String name, String date, int viewer, String title) {
         this.maKhoaHoc = maKhoaHoc;
         this.avatar = avatar;
         this.name = name;
         this.date = date;
         this.viewer = viewer;
+        this.title = title;
     }
 
     public String getMaKhoaHoc() {
@@ -55,5 +59,13 @@ public class KhoaHoc {
 
     public void setViewer(int viewer) {
         this.viewer = viewer;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

@@ -17,6 +17,7 @@ import com.example.appstudyenglish.databinding.FragmentHomeBinding;
 import com.example.appstudyenglish.model.KhoaHoc;
 import com.example.appstudyenglish.ui.fragment.notification.NotificationFragment;
 import com.example.appstudyenglish.ui.fragment.search.SearchFragment;
+import com.example.appstudyenglish.ui.fragment.thong_tin_vstep.ThongTinVstepFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,14 +56,14 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
 
     private void addData() {
         listKhoaHoc = new ArrayList<>();
-        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Chứng chỉ Vstep là gì ?","19/05/2001",2001));
-        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Hậu môn là ai ?","06/09/2021",2001));
-        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Khi nào cần học Tiếng anh ?","19/05/2001",2001));
+        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Chứng chỉ Vstep là gì ?","19/05/2001",2001,""));
+        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Hậu môn là ai ?","06/09/2021",2001,""));
+        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Khi nào cần học Tiếng anh ?","19/05/2001",2001,""));
 
         listKhoaHoc2 = new ArrayList<>();
-        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A0","2 tuần",2301));
-        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A1","3 tuần",3343));
-        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A2","8 tuần",7663));
+        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A0","2 tuần",2301,""));
+        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A1","3 tuần",3343,""));
+        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A2","8 tuần",7663,""));
 
     }
 
@@ -110,6 +111,15 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
 
     @Override
     public void onCLickKhoaHoc(int position,int check) {
-
+        if(check == 1){
+            ThongTinVstepFragment thongTinVstepFragment = new ThongTinVstepFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("stepinfo",listKhoaHoc.get(position));
+            thongTinVstepFragment.setArguments(bundle);
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentMain, thongTinVstepFragment);
+            fragmentTransaction.addToBackStack(ThongTinVstepFragment.TAG);
+            fragmentTransaction.commit();
+        }
     }
 }
