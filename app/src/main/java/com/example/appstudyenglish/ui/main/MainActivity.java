@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityMainBinding;
 import com.example.appstudyenglish.ui.fragment.home.HomeFragment;
+import com.example.appstudyenglish.ui.fragment.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
                     getFragment(homeFragment);
                     break;
                 case  R.id.userFragment :
-                    Toast.makeText(this, "User", Toast.LENGTH_SHORT).show();
                     binding.bottomNav.getMenu().findItem(R.id.userFragment).setChecked(true);
+                    getFragment(new ProfileFragment());
                     break;
             }
             return false;
