@@ -1,5 +1,6 @@
 package com.example.appstudyenglish.ui.fragment.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.FragmentHomeBinding;
 import com.example.appstudyenglish.model.KhoaHoc;
+import com.example.appstudyenglish.ui.fragment.khoa_hoc_info.KhoaHocInfoActivity;
 import com.example.appstudyenglish.ui.fragment.notification.NotificationFragment;
 import com.example.appstudyenglish.ui.fragment.search.SearchFragment;
 import com.example.appstudyenglish.ui.fragment.thong_tin_vstep.ThongTinVstepFragment;
@@ -120,6 +122,10 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
             fragmentTransaction.replace(R.id.fragmentMain, thongTinVstepFragment);
             fragmentTransaction.addToBackStack(ThongTinVstepFragment.TAG);
             fragmentTransaction.commit();
+        }else {
+            Intent intent = new Intent(getContext(), KhoaHocInfoActivity.class);
+            intent.putExtra("khoahoc",listKhoaHoc2.get(position));
+            startActivity(intent);
         }
     }
 }
