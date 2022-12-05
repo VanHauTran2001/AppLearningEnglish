@@ -1,24 +1,22 @@
 package com.example.appstudyenglish.ui.fragment.home;
 
+import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.FragmentHomeBinding;
 import com.example.appstudyenglish.model.KhoaHoc;
+import com.example.appstudyenglish.ui.fragment.khoa_hoc_info.KhoaHocInfoActivity;
 import com.example.appstudyenglish.ui.fragment.notification.NotificationFragment;
 import com.example.appstudyenglish.ui.fragment.search.SearchFragment;
 import com.example.appstudyenglish.ui.fragment.thong_tin_vstep.ThongTinVstepFragment;
-
+import com.example.appstudyenglish.ui.test.TestActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,9 +60,9 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
 
         listKhoaHoc2 = new ArrayList<>();
         listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A0","2 tuần",2301,""));
-        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A1","3 tuần",3343,""));
-        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A2","8 tuần",7663,""));
-
+        listKhoaHoc2.add(new KhoaHoc("H2",R.drawable.img_test,"Level A1","3 tuần",3343,""));
+        listKhoaHoc2.add(new KhoaHoc("H3",R.drawable.img_test,"Level A2","8 tuần",7663,""));
+        listKhoaHoc2.add(new KhoaHoc("H4",R.drawable.img_test,"Level A3","12 tuần",9663,""));
     }
 
 
@@ -87,6 +85,12 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
                 fragmentTransaction.replace(R.id.fragmentMain, notificationFragment);
                 fragmentTransaction.addToBackStack(NotificationFragment.TAG);
                 fragmentTransaction.commit();
+            }
+        });
+        binding.layoutLamBaiTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), TestActivity.class));
             }
         });
     }
@@ -120,6 +124,10 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
             fragmentTransaction.replace(R.id.fragmentMain, thongTinVstepFragment);
             fragmentTransaction.addToBackStack(ThongTinVstepFragment.TAG);
             fragmentTransaction.commit();
+        }else {
+            Intent intent = new Intent(getContext(), KhoaHocInfoActivity.class);
+            intent.putExtra("khoahoc",listKhoaHoc2.get(position));
+            startActivity(intent);
         }
     }
 }
