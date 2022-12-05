@@ -51,14 +51,15 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
+
                         <ImageView
+                            android:id="@+id/imgSave"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/save"
-                            android:layout_marginRight="10dp"
-                            android:id="@+id/imgSave"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"/>
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/save" />
                     </RelativeLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
