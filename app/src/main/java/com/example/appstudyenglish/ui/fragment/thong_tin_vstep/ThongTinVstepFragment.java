@@ -32,6 +32,7 @@ public class ThongTinVstepFragment extends Fragment {
     private void getAndSetData() {
         khoaHoc = (KhoaHoc) getArguments().getSerializable("stepinfo");
         binding.content.setText(khoaHoc.getName());
+        binding.imgAnhMoTa.setImageResource(khoaHoc.getAvatar());
     }
 
     private void onClick() {

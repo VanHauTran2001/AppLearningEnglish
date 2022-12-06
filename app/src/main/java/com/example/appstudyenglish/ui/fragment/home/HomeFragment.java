@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.FragmentHomeBinding;
 import com.example.appstudyenglish.model.KhoaHoc;
-import com.example.appstudyenglish.ui.fragment.khoa_hoc_info.KhoaHocInfoActivity;
+import com.example.appstudyenglish.ui.khoa_hoc_info.KhoaHocInfoActivity;
 import com.example.appstudyenglish.ui.fragment.notification.NotificationFragment;
 import com.example.appstudyenglish.ui.fragment.search.SearchFragment;
 import com.example.appstudyenglish.ui.fragment.thong_tin_vstep.ThongTinVstepFragment;
@@ -54,15 +54,15 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
 
     private void addData() {
         listKhoaHoc = new ArrayList<>();
-        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Chứng chỉ Vstep là gì ?","19/05/2001",2001,""));
-        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Hậu môn là ai ?","06/09/2021",2001,""));
-        listKhoaHoc.add(new KhoaHoc("H1",R.drawable.img_test,"Khi nào cần học Tiếng anh ?","19/05/2001",2001,""));
+        listKhoaHoc.add(new KhoaHoc(10,R.drawable.khoa_5,"Chứng chỉ Vstep là gì ?","","19/05/2001",2001,""));
+        listKhoaHoc.add(new KhoaHoc(11,R.drawable.khoa_6,"Hậu môn là ai ?","","06/09/2021",2001,""));
+        listKhoaHoc.add(new KhoaHoc(12,R.drawable.khoa_7,"Khi nào cần học Tiếng anh ?","","19/05/2001",2001,""));
 
         listKhoaHoc2 = new ArrayList<>();
-        listKhoaHoc2.add(new KhoaHoc("H1",R.drawable.img_test,"Level A0","2 tuần",2301,""));
-        listKhoaHoc2.add(new KhoaHoc("H2",R.drawable.img_test,"Level A1","3 tuần",3343,""));
-        listKhoaHoc2.add(new KhoaHoc("H3",R.drawable.img_test,"Level A2","8 tuần",7663,""));
-        listKhoaHoc2.add(new KhoaHoc("H4",R.drawable.img_test,"Level A3","12 tuần",9663,""));
+        listKhoaHoc2.add(new KhoaHoc(1,R.drawable.khoa_1,"Level A0","Hoàng Minh","2 tuần",2301,""));
+        listKhoaHoc2.add(new KhoaHoc(2,R.drawable.khoa_2,"Level A1","Huy Nguyễn","3 tuần",3343,""));
+        listKhoaHoc2.add(new KhoaHoc(3,R.drawable.khoa_3,"Level A2","Trần Hậu","8 tuần",7663,""));
+        listKhoaHoc2.add(new KhoaHoc(4,R.drawable.khoa_4,"Level A3","Hải Hồ","12 tuần",9663,""));
     }
 
 

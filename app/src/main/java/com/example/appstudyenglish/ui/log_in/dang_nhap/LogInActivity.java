@@ -132,6 +132,7 @@ public class LogInActivity extends AppCompatActivity {
         setLocate();
         if(user.getPermission() == 0){
             Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+            intent.putExtra("check",1);
             startActivity(intent);
         }else if(user.getPermission() == 1){
             Intent intent = new Intent(LogInActivity.this, MainQuanTriActivity.class);
