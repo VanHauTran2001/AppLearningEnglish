@@ -29,11 +29,15 @@
             android:textSize="25dp"
             android:id="@+id/txt2"
             android:layout_margin="20dp"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/imgtest"
-            android:layout_margin="20dp"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/imgtest" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
