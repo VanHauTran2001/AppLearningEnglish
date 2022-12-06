@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityDangKyBinding;
 import com.example.appstudyenglish.model.User;
+import com.example.appstudyenglish.sqlite.SQLiteHelper;
 import com.example.appstudyenglish.ui.cus_tom_dialog.CustomProgressDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -87,6 +88,7 @@ public class DangKyActivity extends AppCompatActivity {
     }
 
     private void onSigup() {
+        SQLiteHelper sqLiteHelper = new SQLiteHelper(getApplicationContext(), "Data.sqlite", null, 5);
         mAuth = FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
@@ -96,6 +98,7 @@ public class DangKyActivity extends AppCompatActivity {
                         String IdAcount = task.getResult().getUser().getUid();
                         User user = new User(IdAcount,name,email,0);
                         databaseReference.child(IdAcount).setValue(user);
+                        sqLiteHelper.QueryData("INSERT INTO User VALUES(null,'" + IdAcount + "','" + email + "','"+name+"','0')");
                         nextActivity();
                     } else {
                         showToast("Sai định dạng email hoặc tài khoản đã tồn tại !");

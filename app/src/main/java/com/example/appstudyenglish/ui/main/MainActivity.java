@@ -10,34 +10,41 @@ import android.widget.Toast;
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityMainBinding;
 import com.example.appstudyenglish.ui.fragment.home.HomeFragment;
+import com.example.appstudyenglish.ui.fragment.khoa_hoc_cua_ban.KhoaHocCuaBanFragment;
 import com.example.appstudyenglish.ui.fragment.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private HomeFragment homeFragment;
+    private int check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         onCLickMenu();
-        homeFragment = new HomeFragment();
-        getFragment(homeFragment);
-        binding.bottomNav.getMenu().findItem(R.id.homeFragment).setChecked(true);
+        check = getIntent().getIntExtra("check",0);
+        if(check == 1){
+            homeFragment = new HomeFragment();
+            getFragment(homeFragment);
+            binding.bottomNav.getMenu().findItem(R.id.homeFragment).setChecked(true);
+        }else {
+            getFragment(new KhoaHocCuaBanFragment());
+            binding.bottomNav.getMenu().findItem(R.id.bookmarkFragment).setChecked(true);
+        }
     }
 
     private void onCLickMenu() {
         binding.bottomNav.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case  R.id.bookmarkFragment :
-                    Toast.makeText(this, "BookMark", Toast.LENGTH_SHORT).show();
+                    getFragment(new KhoaHocCuaBanFragment());
                     binding.bottomNav.getMenu().findItem(R.id.bookmarkFragment).setChecked(true);
                     break;
                 case  R.id.homeFragment :
-                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
                     binding.bottomNav.getMenu().findItem(R.id.homeFragment).setChecked(true);
-                    getFragment(homeFragment);
+                    getFragment(new HomeFragment());
                     break;
                 case  R.id.userFragment :
                     binding.bottomNav.getMenu().findItem(R.id.userFragment).setChecked(true);

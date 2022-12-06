@@ -13,6 +13,8 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -74,7 +76,7 @@ public class ProfileFragment extends Fragment {
                 onClickRequestPermission();
             }
         });
-        binding.imgSave.setOnClickListener(new View.OnClickListener() {
+        binding.btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onUpdateInfor();
@@ -96,6 +98,8 @@ public class ProfileFragment extends Fragment {
             if (task.isSuccessful()){
                 dialog.dismiss();
                 Glide.with(getActivity()).load(firebaseUser.getPhotoUrl()).error(R.drawable.avata).into(binding.imgAvatarUser);
+                binding.btnSave.setVisibility(View.GONE);
+                Toast.makeText(getContext(), "Cập nhập ảnh đại diện thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -126,6 +130,7 @@ public class ProfileFragment extends Fragment {
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),uri);
                         setBitmapImageView(bitmap);
+                        binding.btnSave.setVisibility(View.VISIBLE);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
