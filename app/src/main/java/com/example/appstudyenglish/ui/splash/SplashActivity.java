@@ -36,6 +36,11 @@ public class SplashActivity extends AppCompatActivity {
                 "AvatarKhoaHoc INTEGER," +
                 "TenGiangVien NVARCHAR(100)," +
                 "ThoiGian NVARCHAR(100))");
+        sqLiteHelper.QueryData("CREATE TABLE IF NOT EXISTS TinNhan(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "UserId VARCHAR(100)," +
+                "MaKhoaHoc INTEGER," +
+                "NoiDung NVARCHAR(200)," +
+                "ThoiGian NVARCHAR(100))");
     }
 
     private void nextActivity(){

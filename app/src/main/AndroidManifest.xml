@@ -18,6 +18,9 @@
         android:theme="@style/Theme.AppStudyEnglish"
         tools:targetApi="31">
         <activity
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.chi_tiet_tuan_hoc.ChiTietTuanHocActivity"
             android:exported="false" />
         <activity

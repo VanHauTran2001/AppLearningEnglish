@@ -30,7 +30,7 @@ public class ChiTietKhoaHocActivity extends AppCompatActivity implements TuanAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_chi_tiet_khoa_hoc);
-        khoaHoc = (KhoaHoc) getIntent().getSerializableExtra("khoaHoc");
+        khoaHoc = (KhoaHoc) getIntent().getSerializableExtra("khoahoc");
         getAndSetData();
         addDataTuan();
         initRecyclerview();
