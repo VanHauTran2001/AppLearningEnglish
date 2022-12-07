@@ -18,16 +18,17 @@
             android:background="@drawable/custom_search_view"
             android:textSize="20dp"
             app:iconifiedByDefault="false"
-            app:queryHint="Tìm kiếm tại đây"/>
+            app:queryHint="Tìm kiếm khóa học"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/login_text"
-            android:text="Tìm kiếm gần đây"
+            android:text="Danh sách khóa học"
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginTop="30dp"/>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvKhoaHoc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp"/>
