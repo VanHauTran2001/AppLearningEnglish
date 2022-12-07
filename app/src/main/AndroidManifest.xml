@@ -18,8 +18,26 @@
         android:theme="@style/Theme.AppStudyEnglish"
         tools:targetApi="31">
         <activity
-            android:name=".ui.chat.ChatActivity"
-            android:exported="false" />
+            android:name=".ui.test.reading.ReadingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.test.listening.TestListeningActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.test.listening.ListeningActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ui.chi_tiet_tuan_hoc.ChiTietTuanHocActivity"
             android:exported="false" />
