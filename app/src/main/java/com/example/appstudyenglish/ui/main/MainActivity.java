@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private HomeFragment homeFragment;
     private int check;
+    private long backPressTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,5 +61,15 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragmentMain,fragment,Fragment.class.getName())
                 .commit();
     }
-
+    @Override
+    public void onBackPressed() {
+        if(backPressTime +2000 > System.currentTimeMillis()){
+            finishAffinity();
+            System.exit(0);
+            return;
+        }else {
+            Toast.makeText(this,"Nhấn 2 lần để thoát app",Toast.LENGTH_SHORT).show();
+        }
+        backPressTime = System.currentTimeMillis();
+    }
 }
