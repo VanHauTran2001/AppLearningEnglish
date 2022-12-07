@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityTestListeningBinding;
+import com.example.appstudyenglish.ui.test.reading.ReadingActivity;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -84,6 +85,13 @@ public class TestListeningActivity extends AppCompatActivity {
 //                binding.seekBar.setSecondaryProgress(buff);
 //            }
 //        });
+        binding.imgNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.stop();
+                startActivity(new Intent(TestListeningActivity.this, ReadingActivity.class));
+            }
+        });
 
     }
     public class UpdateSeekbar implements Runnable{
