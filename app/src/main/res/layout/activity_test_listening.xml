@@ -69,8 +69,10 @@
                 android:src="@drawable/ic_baseline_play_arrow_24"
                 android:id="@+id/imgPlay"/>
             <SeekBar
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:id="@+id/seekBar"
+                android:max="23"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -78,6 +80,7 @@
                 android:text="00:00"
                 android:textColor="@color/black"
                 android:textSize="16dp"
+                android:id="@+id/timeMP3"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"/>
         </LinearLayout>
@@ -88,27 +91,22 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
+            android:id="@+id/txtQuestionListening"
             android:text="Hear the four statements , look at the picture and choose the statement that best describes what you see in the picture"
             android:textColor="@color/black"
             android:textSize="16dp"/>
         <RadioGroup
             android:layout_width="match_parent"
+            android:layout_margin="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="50dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:id="@+id/rela1"
-                android:layout_height="wrap_content">
+            android:orientation="vertical">
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/black"
                     android:text="A"
-                    android:layout_marginLeft="50dp"
-                    android:textSize="25dp"/>
+                    android:textSize="30dp"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,22 +114,16 @@
                     android:layout_alignParentRight="true"
                     android:backgroundTint="@color/black"
                     android:text="B"
-                    android:layout_marginRight="50dp"
-                    android:textSize="25dp"/>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_marginTop="50dp"
-                android:layout_height="wrap_content">
+                    android:layout_marginTop="10dp"
+                    android:textSize="30dp"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/black"
                     android:text="C"
-                    android:layout_marginLeft="50dp"
-                    android:textSize="25dp"/>
+                    android:layout_marginTop="10dp"
+                    android:textSize="30dp"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -139,25 +131,28 @@
                     android:layout_alignParentRight="true"
                     android:backgroundTint="@color/black"
                     android:text="D"
-                    android:layout_marginRight="50dp"
-                    android:textSize="25dp"/>
-            </RelativeLayout>
+                    android:layout_marginTop="10dp"
+                    android:textSize="30dp"/>
         </RadioGroup>
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_marginBottom="30dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:layout_width="35dp"
-                android:layout_alignParentBottom="true"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_back"/>
+                android:layout_alignParentBottom="true"
+                android:id="@+id/imgBack"
+                android:src="@drawable/ic_back" />
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_alignParentRight="true"
+                android:id="@+id/imgNext"
                 android:layout_alignParentBottom="true"
                 android:src="@drawable/ic_right_24"/>
         </RelativeLayout>
