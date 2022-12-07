@@ -17,6 +17,7 @@ import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.FragmentKhoaHocCuaBanBinding;
 import com.example.appstudyenglish.model.KhoaHoc;
 import com.example.appstudyenglish.sqlite.SQLiteHelper;
+import com.example.appstudyenglish.ui.chat.ChatActivity;
 import com.example.appstudyenglish.ui.chi_tiet_khoa_hoc.ChiTietKhoaHocActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -80,12 +81,14 @@ public class KhoaHocCuaBanFragment extends Fragment implements KhoaHocCuaBanAdap
     @Override
     public void onClickVaoHoc(int position) {
         Intent intent = new Intent(getContext(), ChiTietKhoaHocActivity.class);
-        intent.putExtra("khoaHoc",khoaHocList.get(position));
+        intent.putExtra("khoahoc",khoaHocList.get(position));
         startActivity(intent);
     }
 
     @Override
     public void onClickChat(int position) {
-
+        Intent intent = new Intent(getContext(), ChatActivity.class);
+        intent.putExtra("khoahoc",khoaHocList.get(position));
+        startActivity(intent);
     }
 }
