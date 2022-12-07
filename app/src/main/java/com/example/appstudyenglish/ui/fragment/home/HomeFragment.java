@@ -1,7 +1,10 @@
 package com.example.appstudyenglish.ui.fragment.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,14 +12,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.bumptech.glide.Glide;
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.FragmentHomeBinding;
 import com.example.appstudyenglish.model.KhoaHoc;
+import com.example.appstudyenglish.model.User;
 import com.example.appstudyenglish.ui.khoa_hoc_info.KhoaHocInfoActivity;
 import com.example.appstudyenglish.ui.fragment.notification.NotificationFragment;
 import com.example.appstudyenglish.ui.fragment.search.SearchFragment;
 import com.example.appstudyenglish.ui.fragment.thong_tin_vstep.ThongTinVstepFragment;
 import com.example.appstudyenglish.ui.test.TestActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +42,7 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
     private List<KhoaHoc> listKhoaHoc2;
     private KhoaHocAdapter khoaHocAdapter;
     private KhoaHocAdapter khoaHocAdapter2;
+    private User user;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,7 +51,32 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
         onCLick();
         addData();
         initAdapter();
+        upLoadUserName();
         return view;
+    }
+
+    private void upLoadUserName() {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser==null){
+            binding.txtuserName.setText("Hoang Duy Tung");
+            return;
+        }
+        else {
+            String userID = firebaseUser.getUid();
+            FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+            DatabaseReference databaseReference = firebaseDatabase.getReference(userID);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    user = snapshot.getValue(User.class);
+                    binding.txtuserName.setText(user.getName());
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
     }
 
     private void initAdapter() {
@@ -55,7 +95,7 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
     private void addData() {
         listKhoaHoc = new ArrayList<>();
         listKhoaHoc.add(new KhoaHoc(10,R.drawable.khoa_5,"Chứng chỉ Vstep là gì ?","","19/05/2001",2001,""));
-        listKhoaHoc.add(new KhoaHoc(11,R.drawable.khoa_6,"Hậu môn là ai ?","","06/09/2021",2001,""));
+        listKhoaHoc.add(new KhoaHoc(11,R.drawable.khoa_6,"Chứng chỉ Vstep có lợi ích gì ?","","06/09/2021",2001,""));
         listKhoaHoc.add(new KhoaHoc(12,R.drawable.khoa_7,"Khi nào cần học Tiếng anh ?","","19/05/2001",2001,""));
 
         listKhoaHoc2 = new ArrayList<>();

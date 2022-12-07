@@ -18,6 +18,20 @@
         android:theme="@style/Theme.AppStudyEnglish"
         tools:targetApi="31">
         <activity
+            android:name=".ui.test.writting.WrittingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.test.speaking.SpeakingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.test.reading.TestReadingActivity"
             android:exported="false" />
         <activity

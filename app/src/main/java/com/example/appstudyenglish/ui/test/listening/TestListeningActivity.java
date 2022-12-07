@@ -4,35 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityTestListeningBinding;
-import com.example.appstudyenglish.model.AnswerListen;
-import com.example.appstudyenglish.model.QuestionListening;
+import com.example.appstudyenglish.model.CauHoi;
+import com.example.appstudyenglish.model.CauTraLoi;
 import com.example.appstudyenglish.ui.test.reading.ReadingActivity;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Locale;
 
 public class TestListeningActivity extends AppCompatActivity implements View.OnClickListener{
     private ActivityTestListeningBinding binding;
     private MediaPlayer mediaPlayer;
     Handler handler;
-    private List<QuestionListening> mListQuestion;
+    private List<CauHoi> mListQuestion;
     private int currentQuestion = 0;
-    private QuestionListening mQuestion;
+    private CauHoi mQuestion;
+    private static int point = 0;
+    private boolean checkPoint;
+    private long mTimeInMillis = 300000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,21 +45,39 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
             return;
         }
         setDataQuestionListen(mListQuestion.get(currentQuestion));
+        onSetTimeDown();
+    }
+
+    private void onSetTimeDown() {
+        new CountDownTimer(mTimeInMillis, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                mTimeInMillis = millisUntilFinished;
+                int minutes = (int) (mTimeInMillis/1000)/60;
+                int seconds = (int) (mTimeInMillis/1000)%60;
+                binding.txtTimeListen.setText(String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds));
+            }
+
+            public void onFinish() {
+                startActivity(new Intent(TestListeningActivity.this,ReadingActivity.class));
+            }
+
+        }.start();
     }
 
 
-    private void setDataQuestionListen(QuestionListening questionListening) {
+    private void setDataQuestionListen(CauHoi questionListening) {
         if (questionListening==null){
             return;
         }
         mQuestion = questionListening;
 
-        binding.txtNumberListen.setText(String.valueOf(questionListening.getNumberListen()));
-        binding.txtQuestionListen.setText(questionListening.getQuestionListen());
-        binding.radioAnswer1.setText(questionListening.getAnswerListenList().get(0).getAnswerListen());
-        binding.radioAnswer2.setText(questionListening.getAnswerListenList().get(1).getAnswerListen());
-        binding.radioAnswer3.setText(questionListening.getAnswerListenList().get(2).getAnswerListen());
-        binding.radioAnswer4.setText(questionListening.getAnswerListenList().get(3).getAnswerListen());
+        binding.txtNumberListen.setText(String.valueOf(questionListening.getStt()));
+        binding.txtQuestionListen.setText(questionListening.getTitle());
+        binding.radioAnswer1.setText(questionListening.getCauTraLoiList().get(0).getTitleAnswer());
+        binding.radioAnswer2.setText(questionListening.getCauTraLoiList().get(1).getTitleAnswer());
+        binding.radioAnswer3.setText(questionListening.getCauTraLoiList().get(2).getTitleAnswer());
+        binding.radioAnswer4.setText(questionListening.getCauTraLoiList().get(3).getTitleAnswer());
 
         binding.radioAnswer1.setOnClickListener(this);
         binding.radioAnswer2.setOnClickListener(this);
@@ -86,45 +103,6 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
                 }
             }
         });
-//        binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-//                if (b){
-//                    mediaPlayer.seekTo(i);
-//                    binding.seekBar.setProgress(i);
-//                }
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                mediaPlayer.seekTo(binding.seekBar.getProgress());
-//            }
-//        });
-
-    }
-
-    @Override
-    public void onClick(View view) {
-       if (binding.radioAnswer1.isChecked()){
-           checkAnswer(mQuestion,mQuestion.getAnswerListenList().get(0));
-
-       }else if (binding.radioAnswer2.isChecked()){
-           checkAnswer(mQuestion,mQuestion.getAnswerListenList().get(1));
-
-       }else if (binding.radioAnswer3.isChecked()){
-           checkAnswer(mQuestion,mQuestion.getAnswerListenList().get(2));
-
-       }else {
-           checkAnswer(mQuestion,mQuestion.getAnswerListenList().get(3));
-
-       }
-    }
-    private void checkAnswer(QuestionListening question , AnswerListen answer){
         binding.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +117,29 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
         });
     }
 
+    @Override
+    public void onClick(View view) {
+       if (binding.radioAnswer1.isChecked()){
+           checkAnswer(mQuestion.getCauTraLoiList().get(0));
+       }else if (binding.radioAnswer2.isChecked()){
+           checkAnswer(mQuestion.getCauTraLoiList().get(1));
+
+       }else if (binding.radioAnswer3.isChecked()){
+           checkAnswer(mQuestion.getCauTraLoiList().get(2));
+
+       }else {
+           checkAnswer(mQuestion.getCauTraLoiList().get(3));
+
+       }
+    }
+    private void checkAnswer(CauTraLoi answer){
+        if (answer.isAnswer()){
+            checkPoint = true;
+        }else {
+            checkPoint = false;
+        }
+    }
+
     private void backQuestion() {
         if (currentQuestion == 0){
             mediaPlayer.pause();
@@ -150,14 +151,23 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
     }
 
     private void nextQuestion() {
-        binding.radioAnswer1.setChecked(false);
-        binding.radioAnswer2.setChecked(false);
-        binding.radioAnswer3.setChecked(false);
-        binding.radioAnswer4.setChecked(false);
         if (currentQuestion == mListQuestion.size()-1){
             mediaPlayer.pause();
+            if (checkPoint){
+                point += 1;
+                checkPoint = false;
+            }
+            Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             startActivity(new Intent(TestListeningActivity.this,ReadingActivity.class));
         }else {
+            binding.radioAnswer1.setChecked(false);
+            binding.radioAnswer2.setChecked(false);
+            binding.radioAnswer3.setChecked(false);
+            binding.radioAnswer4.setChecked(false);
+            if (checkPoint){
+                point += 1;
+            }
+            Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             currentQuestion++;
             setDataQuestionListen(mListQuestion.get(currentQuestion));
         }
@@ -174,30 +184,82 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    private List<QuestionListening> getListQuestion(){
-        List<QuestionListening> questionList = new ArrayList<>();
+    private List<CauHoi> getListQuestion(){
+        List<CauHoi> questionList = new ArrayList<>();
+        //cau1
+        List<CauTraLoi> answerListenList1 = new ArrayList<>();
+        answerListenList1.add(new CauTraLoi("Student",false));
+        answerListenList1.add(new CauTraLoi("Teacher",false));
+        answerListenList1.add(new CauTraLoi("School",true));
+        answerListenList1.add(new CauTraLoi("Children",false));
+        //cau2
+        List<CauTraLoi> answerListenList2 = new ArrayList<>();
+        answerListenList2.add(new CauTraLoi("Car",true));
+        answerListenList2.add(new CauTraLoi("Chair",false));
+        answerListenList2.add(new CauTraLoi("Desk",false));
+        answerListenList2.add(new CauTraLoi("Table",false));
+        //cau3
+        List<CauTraLoi> answerListenList3 = new ArrayList<>();
+        answerListenList3.add(new CauTraLoi("12",false));
+        answerListenList3.add(new CauTraLoi("2",false));
+        answerListenList3.add(new CauTraLoi("4",false));
+        answerListenList3.add(new CauTraLoi("6",true));
 
-        List<AnswerListen> answerListenList1 = new ArrayList<>();
-        answerListenList1.add(new AnswerListen("Student",false));
-        answerListenList1.add(new AnswerListen("Teacher",false));
-        answerListenList1.add(new AnswerListen("School",true));
-        answerListenList1.add(new AnswerListen("Children",false));
+        //cau4
+        List<CauTraLoi> answerListenList4= new ArrayList<>();
+        answerListenList4.add(new CauTraLoi("Finish",false));
+        answerListenList4.add(new CauTraLoi("Cat",false));
+        answerListenList4.add(new CauTraLoi("Dog",true));
+        answerListenList4.add(new CauTraLoi("Birth",false));
+        //cau5
+        List<CauTraLoi> answerListenList5 = new ArrayList<>();
+        answerListenList5.add(new CauTraLoi("Summer",true));
+        answerListenList5.add(new CauTraLoi("Spring",false));
+        answerListenList5.add(new CauTraLoi("Auturm",false));
+        answerListenList5.add(new CauTraLoi("Winter",false));
+        //cau6
+        List<CauTraLoi> answerListenList6 = new ArrayList<>();
+        answerListenList6.add(new CauTraLoi("12",false));
+        answerListenList6.add(new CauTraLoi("2",false));
+        answerListenList6.add(new CauTraLoi("4",false));
+        answerListenList6.add(new CauTraLoi("6",true));
 
-        List<AnswerListen> answerListenList2 = new ArrayList<>();
-        answerListenList2.add(new AnswerListen("Car",true));
-        answerListenList2.add(new AnswerListen("Chair",false));
-        answerListenList2.add(new AnswerListen("Desk",false));
-        answerListenList2.add(new AnswerListen("Table",false));
+        //cau7
+        List<CauTraLoi> answerListenList7 = new ArrayList<>();
+        answerListenList7.add(new CauTraLoi("Information Technology",false));
+        answerListenList7.add(new CauTraLoi("Data Sceince",false));
+        answerListenList7.add(new CauTraLoi("Big Data",true));
+        answerListenList7.add(new CauTraLoi("Block Chain",false));
+        //cau8
+        List<CauTraLoi> answerListenList8 = new ArrayList<>();
+        answerListenList8.add(new CauTraLoi("Android",true));
+        answerListenList8.add(new CauTraLoi("IOS",false));
+        answerListenList8.add(new CauTraLoi("React Native",false));
+        answerListenList8.add(new CauTraLoi("Flutter",false));
+        //cau9
+        List<CauTraLoi> answerListenList9 = new ArrayList<>();
+        answerListenList9.add(new CauTraLoi("Book",false));
+        answerListenList9.add(new CauTraLoi("Pen",false));
+        answerListenList9.add(new CauTraLoi("Door",false));
+        answerListenList9.add(new CauTraLoi("Color",true));
 
-        List<AnswerListen> answerListenList3 = new ArrayList<>();
-        answerListenList3.add(new AnswerListen("12",false));
-        answerListenList3.add(new AnswerListen("2",false));
-        answerListenList3.add(new AnswerListen("4",false));
-        answerListenList3.add(new AnswerListen("6",true));
+        //cau10
+        List<CauTraLoi> answerListenList10 = new ArrayList<>();
+        answerListenList10.add(new CauTraLoi("Dentis",false));
+        answerListenList10.add(new CauTraLoi("Lock",false));
+        answerListenList10.add(new CauTraLoi("Jonh",false));
+        answerListenList10.add(new CauTraLoi("Swim",true));
 
-        questionList.add(new QuestionListening(1,"What is your name ?",answerListenList1));
-        questionList.add(new QuestionListening(2,"How often do you go to the office ?",answerListenList2));
-        questionList.add(new QuestionListening(3,"How many people are there do you have ?",answerListenList3));
+        questionList.add(new CauHoi(1,"What is your name ?",answerListenList1));
+        questionList.add(new CauHoi(2,"How often do you go to the office ?",answerListenList2));
+        questionList.add(new CauHoi(3,"How many people are there do you have ?",answerListenList3));
+        questionList.add(new CauHoi(4,"What is your name ?",answerListenList4));
+        questionList.add(new CauHoi(5,"How often do you go to the office ?",answerListenList5));
+        questionList.add(new CauHoi(6,"How many people are there do you have ?",answerListenList6));
+        questionList.add(new CauHoi(7,"What is your name ?",answerListenList7));
+        questionList.add(new CauHoi(8,"How often do you go to the office ?",answerListenList8));
+        questionList.add(new CauHoi(9,"How many people are there do you have ?",answerListenList9));
+        questionList.add(new CauHoi(10,"How many people are there do you have ?",answerListenList10));
         return questionList;
     }
 

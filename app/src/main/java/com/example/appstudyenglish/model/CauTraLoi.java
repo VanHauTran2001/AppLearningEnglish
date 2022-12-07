@@ -1,31 +1,31 @@
 package com.example.appstudyenglish.model;
 
 public class CauTraLoi {
-    private String title;
-    private int answer;
+    private String titleAnswer;
+    private boolean isAnswer;
 
     public CauTraLoi(){
 
     }
 
-    public CauTraLoi(String title, int answer) {
-        this.title = title;
-        this.answer = answer;
+    public CauTraLoi(String titleAnswer, boolean isAnswer) {
+        this.titleAnswer = titleAnswer;
+        this.isAnswer = isAnswer;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitleAnswer() {
+        return titleAnswer;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitleAnswer(String titleAnswer) {
+        this.titleAnswer = titleAnswer;
     }
 
-    public int getAnswer() {
-        return answer;
+    public boolean isAnswer() {
+        return isAnswer;
     }
 
-    public void setAnswer(int answer) {
-        this.answer = answer;
+    public void setAnswer(boolean answer) {
+        isAnswer = answer;
     }
 }

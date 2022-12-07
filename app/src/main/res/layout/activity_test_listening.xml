@@ -43,6 +43,7 @@
                     android:paddingStart="20dp"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
+                    android:id="@+id/txtTimeListen"
                     android:paddingEnd="20dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"

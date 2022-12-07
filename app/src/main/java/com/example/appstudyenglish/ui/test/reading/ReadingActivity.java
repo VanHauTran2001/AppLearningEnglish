@@ -26,5 +26,11 @@ public class ReadingActivity extends AppCompatActivity {
                 startActivity(new Intent(ReadingActivity.this, TestReadingActivity.class));
             }
         });
+        binding.imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
