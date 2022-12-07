@@ -20,6 +20,7 @@
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textSize="25dp"
+                    android:id="@+id/txtNumberListen"
                     android:textColor="@color/login_text"
                     android:textStyle="bold"/>
                 <TextView
@@ -73,6 +74,7 @@
                 android:layout_gravity="center_vertical"
                 android:id="@+id/seekBar"
                 android:max="23"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -91,13 +93,13 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/txtQuestionListening"
+            android:id="@+id/txtQuestionListen"
             android:text="Hear the four statements , look at the picture and choose the statement that best describes what you see in the picture"
             android:textColor="@color/black"
-            android:textSize="16dp"/>
+            android:textSize="18dp"/>
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
                 <RadioButton
@@ -106,7 +108,8 @@
                     android:textColor="@color/black"
                     android:backgroundTint="@color/black"
                     android:text="A"
-                    android:textSize="30dp"/>
+                    android:id="@+id/radioAnswer1"
+                    android:textSize="20dp"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,16 +117,18 @@
                     android:layout_alignParentRight="true"
                     android:backgroundTint="@color/black"
                     android:text="B"
+                    android:id="@+id/radioAnswer2"
                     android:layout_marginTop="10dp"
-                    android:textSize="30dp"/>
+                    android:textSize="20dp"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:backgroundTint="@color/black"
                     android:text="C"
+                    android:id="@+id/radioAnswer3"
                     android:layout_marginTop="10dp"
-                    android:textSize="30dp"/>
+                    android:textSize="20dp"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,8 +136,9 @@
                     android:layout_alignParentRight="true"
                     android:backgroundTint="@color/black"
                     android:text="D"
+                    android:id="@+id/radioAnswer4"
                     android:layout_marginTop="10dp"
-                    android:textSize="30dp"/>
+                    android:textSize="20dp"/>
         </RadioGroup>
 
         <RelativeLayout
