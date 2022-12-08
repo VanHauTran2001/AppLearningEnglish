@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/custom_btn_test.xml" value="0.181" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/custom_button_login.xml" value="0.181" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/custom_editext.xml" value="0.181" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/custom_img.xml" value="0.1695" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/custom_layout.xml" value="0.1695" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.1695" />
@@ -13,11 +14,16 @@
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.1695" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/ic_baseline_seting_24.xml" value="0.1695" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/ic_play.xml" value="0.181" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_advice.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_complete.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_log_in.xml" value="0.12360688956433637" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_main_quan_tri.xml" value="0.17255434782608695" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_test.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_test_listening.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_test_speaking.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_test_writing.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_writting.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_khoa_hoc.xml" value="0.264" />

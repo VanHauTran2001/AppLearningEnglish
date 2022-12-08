@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
         listKhoaHoc2.add(new KhoaHoc(1,R.drawable.khoa_1,"Level A0","Hoàng Minh","2 tuần",2301,""));
         listKhoaHoc2.add(new KhoaHoc(2,R.drawable.khoa_2,"Level A1","Huy Nguyễn","3 tuần",3343,""));
         listKhoaHoc2.add(new KhoaHoc(3,R.drawable.khoa_3,"Level A2","Trần Hậu","8 tuần",7663,""));
-        listKhoaHoc2.add(new KhoaHoc(4,R.drawable.khoa_4,"Level A3","Hải Hồ","12 tuần",9663,""));
+        listKhoaHoc2.add(new KhoaHoc(4,R.drawable.khoa_4,"Level B1","Hải Hồ","12 tuần",9663,""));
     }
 
 
