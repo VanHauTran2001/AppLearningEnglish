@@ -13,6 +13,7 @@ import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityTestReadingBinding;
 import com.example.appstudyenglish.model.CauHoi;
 import com.example.appstudyenglish.model.CauTraLoi;
+import com.example.appstudyenglish.model.KhoaHoc;
 import com.example.appstudyenglish.ui.test.listening.TestListeningActivity;
 import com.example.appstudyenglish.ui.test.speaking.SpeakingActivity;
 
@@ -80,40 +81,63 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
         binding.rdDapAn2.setText(cauHoi.getCauTraLoiList().get(1).getTitleAnswer());
         binding.rdDapAn3.setText(cauHoi.getCauTraLoiList().get(2).getTitleAnswer());
         binding.rdDapAn4.setText(cauHoi.getCauTraLoiList().get(3).getTitleAnswer());
-        if(dem == 1 ){
-            binding.imgQuestion.setVisibility(View.GONE);
-        }
         binding.rdDapAn1.setOnClickListener(this);
         binding.rdDapAn2.setOnClickListener(this);
         binding.rdDapAn3.setOnClickListener(this);
         binding.rdDapAn4.setOnClickListener(this);
+        if(cauHoi.getDapAnChon() == 1){
+            binding.rdDapAn1.setChecked(true);
+        }else if(cauHoi.getDapAnChon() == 2){
+            binding.rdDapAn2.setChecked(true);
+        }else if(cauHoi.getDapAnChon() == 3){
+            binding.rdDapAn3.setChecked(true);
+        } else if(cauHoi.getDapAnChon() == 4){
+            binding.rdDapAn4.setChecked(true);
+        }
     }
 
     private void onClickBackQuestion() {
+        setRadioChecked();
         if(dem == 0){
             startActivity(new Intent(TestReadingActivity.this,ReadingActivity.class));
         }else {
             dem--;
             setData(cauHoiList.get(dem));
-            setRadioButton();
+            if(cauHoiList.get(dem-1).getDapAnChon() == 0){
+                setRadioButton();
+                Toast.makeText(this, ""+dem, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     private void onClickNextQuestion() {
+        setRadioChecked();
         if(dem == 9){
             if (checkPoint){
                 point += 1;
             }
-            Toast.makeText(TestReadingActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             startActivity(new Intent(TestReadingActivity.this, SpeakingActivity.class));
         }else {
             if (checkPoint){
                 point += 1;
             }
-            Toast.makeText(TestReadingActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             dem++;
             setData(cauHoiList.get(dem));
-            setRadioButton();
+            if(cauHoiList.get(dem).getDapAnChon() == 0){
+                setRadioButton();
+            }
+        }
+    }
+
+    private void setRadioChecked(){
+        if(binding.rdDapAn1.isChecked()){
+             cauHoiList.get(dem).setDapAnChon(1);
+        }else if(binding.rdDapAn2.isChecked()){
+            cauHoiList.get(dem).setDapAnChon(2);
+        } else if(binding.rdDapAn3.isChecked()){
+            cauHoiList.get(dem).setDapAnChon(3);
+        } else if(binding.rdDapAn4.isChecked()){
+            cauHoiList.get(dem).setDapAnChon(4);
         }
     }
 
@@ -131,17 +155,81 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
         cauTraLoiList.add(new CauTraLoi("Câu trả lời số 3",true));
         cauTraLoiList.add(new CauTraLoi("Câu trả lời số 4",false));
 
+        //cau1
+        List<CauTraLoi> answerListenList1 = new ArrayList<>();
+        answerListenList1.add(new CauTraLoi("Student",false));
+        answerListenList1.add(new CauTraLoi("Teacher",false));
+        answerListenList1.add(new CauTraLoi("School",true));
+        answerListenList1.add(new CauTraLoi("Children",false));
+        //cau2
+        List<CauTraLoi> answerListenList2 = new ArrayList<>();
+        answerListenList2.add(new CauTraLoi("Car",true));
+        answerListenList2.add(new CauTraLoi("Chair",false));
+        answerListenList2.add(new CauTraLoi("Desk",false));
+        answerListenList2.add(new CauTraLoi("Table",false));
+        //cau3
+        List<CauTraLoi> answerListenList3 = new ArrayList<>();
+        answerListenList3.add(new CauTraLoi("12",false));
+        answerListenList3.add(new CauTraLoi("2",false));
+        answerListenList3.add(new CauTraLoi("4",false));
+        answerListenList3.add(new CauTraLoi("6",true));
+
+        //cau4
+        List<CauTraLoi> answerListenList4= new ArrayList<>();
+        answerListenList4.add(new CauTraLoi("Finish",false));
+        answerListenList4.add(new CauTraLoi("Cat",false));
+        answerListenList4.add(new CauTraLoi("Dog",true));
+        answerListenList4.add(new CauTraLoi("Birth",false));
+        //cau5
+        List<CauTraLoi> answerListenList5 = new ArrayList<>();
+        answerListenList5.add(new CauTraLoi("Summer",true));
+        answerListenList5.add(new CauTraLoi("Spring",false));
+        answerListenList5.add(new CauTraLoi("Auturm",false));
+        answerListenList5.add(new CauTraLoi("Winter",false));
+        //cau6
+        List<CauTraLoi> answerListenList6 = new ArrayList<>();
+        answerListenList6.add(new CauTraLoi("12",false));
+        answerListenList6.add(new CauTraLoi("2",false));
+        answerListenList6.add(new CauTraLoi("4",false));
+        answerListenList6.add(new CauTraLoi("6",true));
+
+        //cau7
+        List<CauTraLoi> answerListenList7 = new ArrayList<>();
+        answerListenList7.add(new CauTraLoi("Information Technology",false));
+        answerListenList7.add(new CauTraLoi("Data Sceince",false));
+        answerListenList7.add(new CauTraLoi("Big Data",true));
+        answerListenList7.add(new CauTraLoi("Block Chain",false));
+        //cau8
+        List<CauTraLoi> answerListenList8 = new ArrayList<>();
+        answerListenList8.add(new CauTraLoi("Android",true));
+        answerListenList8.add(new CauTraLoi("IOS",false));
+        answerListenList8.add(new CauTraLoi("React Native",false));
+        answerListenList8.add(new CauTraLoi("Flutter",false));
+        //cau9
+        List<CauTraLoi> answerListenList9 = new ArrayList<>();
+        answerListenList9.add(new CauTraLoi("Book",false));
+        answerListenList9.add(new CauTraLoi("Pen",false));
+        answerListenList9.add(new CauTraLoi("Door",false));
+        answerListenList9.add(new CauTraLoi("Color",true));
+
+        //cau10
+        List<CauTraLoi> answerListenList10 = new ArrayList<>();
+        answerListenList10.add(new CauTraLoi("Dentis",false));
+        answerListenList10.add(new CauTraLoi("Lock",false));
+        answerListenList10.add(new CauTraLoi("Jonh",false));
+        answerListenList10.add(new CauTraLoi("Swim",true));
+
         cauHoiList = new ArrayList<>();
-        cauHoiList.add(new CauHoi(1,"Đây là câu hỏi số 1 : Look at the picture and choose the statement that best describes what you see in the picture ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(2,"Đây là câu hỏi số 2 : Look at the picture and choose the statement that best describes what you see in the  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(3,"Đây là câu hỏi số 3 : Look at the picture and choose the statement that best describes what you see in  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(4,"Đây là câu hỏi số 4 : Look at the picture and choose the statement that best describes what you see  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(5,"Đây là câu hỏi số 5 : Look at the picture and choose the statement that best describes what you  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(6,"Đây là câu hỏi số 6 : Look at the picture and choose the statement that best describes what  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(7,"Đây là câu hỏi số 7 : Look at the picture and choose the statement that best describes  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(8,"Đây là câu hỏi số 8 : Look at the picture and choose the statement that best  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(9,"Đây là câu hỏi số 9 : Look at the picture and choose the statement that  ",cauTraLoiList));
-        cauHoiList.add(new CauHoi(10,"Đây là câu hỏi số 10 : Look at the picture and choose the statement  ",cauTraLoiList));
+        cauHoiList.add(new CauHoi(1,"What is your name ?",answerListenList1,0));
+        cauHoiList.add(new CauHoi(2,"How often do you go to the office ?",answerListenList2,0));
+        cauHoiList.add(new CauHoi(3,"How many people are there do you have ?",answerListenList3,0));
+        cauHoiList.add(new CauHoi(4,"What is your name ?",answerListenList4,0));
+        cauHoiList.add(new CauHoi(5,"How often do you go to the office ?",answerListenList5,0));
+        cauHoiList.add(new CauHoi(6,"How many people are there do you have ?",answerListenList6,0));
+        cauHoiList.add(new CauHoi(7,"What is your name ?",answerListenList7,0));
+        cauHoiList.add(new CauHoi(8,"How often do you go to the office ?",answerListenList8,0));
+        cauHoiList.add(new CauHoi(9,"How many people are there do you have ?",answerListenList9,0));
+        cauHoiList.add(new CauHoi(10,"How many people are there do you have ?",answerListenList10,0));
 
         return cauHoiList;
     }

@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -83,6 +84,17 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
         binding.radioAnswer2.setOnClickListener(this);
         binding.radioAnswer3.setOnClickListener(this);
         binding.radioAnswer4.setOnClickListener(this);
+
+        if(questionListening.getDapAnChon() == 1){
+            binding.radioAnswer1.setChecked(true);
+        }else if(questionListening.getDapAnChon() == 2){
+            binding.radioAnswer2.setChecked(true);
+        }else if(questionListening.getDapAnChon() == 3){
+            binding.radioAnswer3.setChecked(true);
+        } else if(questionListening.getDapAnChon() == 4){
+            binding.radioAnswer4.setChecked(true);
+        }
+//        Toast.makeText(this, ""+questionListening.getDapAnChon(), Toast.LENGTH_SHORT).show();
     }
 
 
@@ -123,13 +135,10 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
            checkAnswer(mQuestion.getCauTraLoiList().get(0));
        }else if (binding.radioAnswer2.isChecked()){
            checkAnswer(mQuestion.getCauTraLoiList().get(1));
-
        }else if (binding.radioAnswer3.isChecked()){
            checkAnswer(mQuestion.getCauTraLoiList().get(2));
-
        }else {
            checkAnswer(mQuestion.getCauTraLoiList().get(3));
-
        }
     }
     private void checkAnswer(CauTraLoi answer){
@@ -141,35 +150,58 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
     }
 
     private void backQuestion() {
+        setRadioChecked();
         if (currentQuestion == 0){
             mediaPlayer.pause();
             startActivity(new Intent(TestListeningActivity.this,ListeningActivity.class));
         }else {
             currentQuestion--;
             setDataQuestionListen(mListQuestion.get(currentQuestion));
+            if(mListQuestion.get(currentQuestion).getDapAnChon() == 0){
+                setRadioButton();
+            }
         }
     }
 
     private void nextQuestion() {
+        setRadioChecked();
         if (currentQuestion == mListQuestion.size()-1){
             mediaPlayer.pause();
             if (checkPoint){
                 point += 1;
                 checkPoint = false;
             }
-            Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
+     //       Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             startActivity(new Intent(TestListeningActivity.this,ReadingActivity.class));
         }else {
-            binding.radioAnswer1.setChecked(false);
-            binding.radioAnswer2.setChecked(false);
-            binding.radioAnswer3.setChecked(false);
-            binding.radioAnswer4.setChecked(false);
             if (checkPoint){
                 point += 1;
             }
-            Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
+     //       Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             currentQuestion++;
             setDataQuestionListen(mListQuestion.get(currentQuestion));
+            if(mListQuestion.get(currentQuestion).getDapAnChon() == 0){
+                setRadioButton();
+            }
+        }
+    }
+
+    private void setRadioButton(){
+        binding.radioAnswer1.setChecked(false);
+        binding.radioAnswer2.setChecked(false);
+        binding.radioAnswer3.setChecked(false);
+        binding.radioAnswer4.setChecked(false);
+    }
+
+    private void setRadioChecked(){
+        if(binding.radioAnswer1.isChecked()){
+            mListQuestion.get(currentQuestion).setDapAnChon(1);
+        }else if(binding.radioAnswer2.isChecked()){
+            mListQuestion.get(currentQuestion).setDapAnChon(2);
+        } else if(binding.radioAnswer3.isChecked()){
+            mListQuestion.get(currentQuestion).setDapAnChon(3);
+        } else if(binding.radioAnswer4.isChecked()){
+            mListQuestion.get(currentQuestion).setDapAnChon(4);
         }
     }
 
@@ -250,16 +282,16 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
         answerListenList10.add(new CauTraLoi("Jonh",false));
         answerListenList10.add(new CauTraLoi("Swim",true));
 
-        questionList.add(new CauHoi(1,"What is your name ?",answerListenList1));
-        questionList.add(new CauHoi(2,"How often do you go to the office ?",answerListenList2));
-        questionList.add(new CauHoi(3,"How many people are there do you have ?",answerListenList3));
-        questionList.add(new CauHoi(4,"What is your name ?",answerListenList4));
-        questionList.add(new CauHoi(5,"How often do you go to the office ?",answerListenList5));
-        questionList.add(new CauHoi(6,"How many people are there do you have ?",answerListenList6));
-        questionList.add(new CauHoi(7,"What is your name ?",answerListenList7));
-        questionList.add(new CauHoi(8,"How often do you go to the office ?",answerListenList8));
-        questionList.add(new CauHoi(9,"How many people are there do you have ?",answerListenList9));
-        questionList.add(new CauHoi(10,"How many people are there do you have ?",answerListenList10));
+        questionList.add(new CauHoi(1,"What is your name ?",answerListenList1,0));
+        questionList.add(new CauHoi(2,"How often do you go to the office ?",answerListenList2,0));
+        questionList.add(new CauHoi(3,"How many people are there do you have ?",answerListenList3,0));
+        questionList.add(new CauHoi(4,"What is your name ?",answerListenList4,0));
+        questionList.add(new CauHoi(5,"How often do you go to the office ?",answerListenList5,0));
+        questionList.add(new CauHoi(6,"How many people are there do you have ?",answerListenList6,0));
+        questionList.add(new CauHoi(7,"What is your name ?",answerListenList7,0));
+        questionList.add(new CauHoi(8,"How often do you go to the office ?",answerListenList8,0));
+        questionList.add(new CauHoi(9,"How many people are there do you have ?",answerListenList9,0));
+        questionList.add(new CauHoi(10,"How many people are there do you have ?",answerListenList10,0));
         return questionList;
     }
 
