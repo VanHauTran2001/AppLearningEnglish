@@ -44,11 +44,21 @@
                     android:textStyle="bold" />
             </RelativeLayout>
         </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read the passage below and answer:"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"/>
+
         <ImageView
             android:id="@+id/imgQuestion"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:src="@drawable/imgtest"
+            android:src="@drawable/img_reading"
             android:scaleType="fitXY"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -127,11 +137,11 @@
                 android:id="@+id/imgNext"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:padding="15dp"
+                android:background="?attr/selectableItemBackground"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:src="@drawable/ic_right_24"
-                android:padding="15dp"
-                android:background="?attr/selectableItemBackground"/>
+                android:src="@drawable/ic_right_24" />
         </RelativeLayout>
     </LinearLayout>
 </layout>
