@@ -99,6 +99,7 @@ public class DangKyActivity extends AppCompatActivity {
                         User user = new User(IdAcount,name,email,0);
                         databaseReference.child(IdAcount).setValue(user);
                         sqLiteHelper.QueryData("INSERT INTO User VALUES(null,'" + IdAcount + "','" + email + "','"+name+"','0')");
+                        sqLiteHelper.QueryData("INSERT INTO BaiTest VALUES(null,'" + IdAcount + "','0','0')");
                         nextActivity();
                     } else {
                         showToast("Sai định dạng email hoặc tài khoản đã tồn tại !");

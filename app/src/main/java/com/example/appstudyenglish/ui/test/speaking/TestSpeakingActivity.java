@@ -40,6 +40,7 @@ public class TestSpeakingActivity extends AppCompatActivity {
     private static int MICROPHONE_PERMISSION_CODE = 200;
     private MediaRecorder mediaRecorder;
     private MediaPlayer mediaPlayer;
+    private boolean checkRecorded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +67,12 @@ public class TestSpeakingActivity extends AppCompatActivity {
         binding.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TestSpeakingActivity.this, WrittingActivity.class));
-                mediaPlayer.stop();
+                if(checkRecorded){
+                    startActivity(new Intent(TestSpeakingActivity.this, WrittingActivity.class));
+                    mediaPlayer.stop();
+                }else {
+                    Toast.makeText(TestSpeakingActivity.this, "Bạn chưa thực hiện bài nói !", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         binding.imgBack.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +90,7 @@ public class TestSpeakingActivity extends AppCompatActivity {
             startRecording();
             binding.btnGhiAm.setBackgroundResource(R.drawable.custom_button_login_red);
             checkGhiAm = true;
+            checkRecorded = true;
         } else if (checkGhiAm == true) {
             checkGhiAm = false;
             binding.btnGhiAm.setBackgroundResource(R.drawable.custom_button_login);
