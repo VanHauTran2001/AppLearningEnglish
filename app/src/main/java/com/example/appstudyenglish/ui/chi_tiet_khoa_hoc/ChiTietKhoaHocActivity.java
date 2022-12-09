@@ -66,11 +66,11 @@ public class ChiTietKhoaHocActivity extends AppCompatActivity implements TuanAda
     private void addDataTuan() {
         tuanList = new ArrayList<>();
         tuanList.add(new Tuan("Tuần 1",1));
-        tuanList.add(new Tuan("Tuần 2",0));
-        tuanList.add(new Tuan("Tuần 3",0));
-        tuanList.add(new Tuan("Kỳ thi kiểm tra",0));
+        tuanList.add(new Tuan("Tuần 2",1));
+        tuanList.add(new Tuan("Tuần 3",1));
+        tuanList.add(new Tuan("Kỳ thi kiểm tra",1));
         tuanList.add(new Tuan("Tuần 5",1));
-        tuanList.add(new Tuan("Tuần 6",0));
+        tuanList.add(new Tuan("Tuần 6",1));
     }
 
     @Override
