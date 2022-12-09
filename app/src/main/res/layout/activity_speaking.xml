@@ -28,18 +28,20 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/imgBack"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_alignParentBottom="true"
-                android:id="@+id/imgBack"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                android:visibility="gone"/>
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_alignParentRight="true"
                 android:id="@+id/imgNext"
                 android:layout_alignParentBottom="true"
-                android:src="@drawable/ic_right_24"/>
+                android:src="@drawable/ic_right_24"
+                android:padding="10dp"/>
         </RelativeLayout>
     </RelativeLayout>
 </layout>

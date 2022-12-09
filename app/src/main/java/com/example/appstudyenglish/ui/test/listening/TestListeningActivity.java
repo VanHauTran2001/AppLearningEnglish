@@ -16,7 +16,10 @@ import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityTestListeningBinding;
 import com.example.appstudyenglish.model.CauHoi;
 import com.example.appstudyenglish.model.CauTraLoi;
+import com.example.appstudyenglish.sqlite.SQLiteHelper;
 import com.example.appstudyenglish.ui.test.reading.ReadingActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -168,22 +171,30 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
         if (currentQuestion == mListQuestion.size()-1){
             mediaPlayer.pause();
             if (checkPoint){
-                point += 1;
+                point += 5;
                 checkPoint = false;
             }
-     //       Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(TestListeningActivity.this,ReadingActivity.class));
+            Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
+            savePointAndNextActivity();
         }else {
             if (checkPoint){
-                point += 1;
+                point += 5;
             }
-     //       Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
+            Toast.makeText(TestListeningActivity.this,"Point : " + point,Toast.LENGTH_SHORT).show();
             currentQuestion++;
             setDataQuestionListen(mListQuestion.get(currentQuestion));
             if(mListQuestion.get(currentQuestion).getDapAnChon() == 0){
                 setRadioButton();
             }
         }
+    }
+
+    private void savePointAndNextActivity() {
+        SQLiteHelper sqLiteHelper = new SQLiteHelper(getApplicationContext(), "Data.sqlite", null, 5);
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = firebaseUser.getUid();
+        startActivity(new Intent(TestListeningActivity.this,ReadingActivity.class));
+        sqLiteHelper.QueryData("UPDATE BaiTest SET DiemNghe='"+point+"' WHERE UserId='"+userID+"'");
     }
 
     private void setRadioButton(){

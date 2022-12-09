@@ -14,8 +14,11 @@ import com.example.appstudyenglish.databinding.ActivityTestReadingBinding;
 import com.example.appstudyenglish.model.CauHoi;
 import com.example.appstudyenglish.model.CauTraLoi;
 import com.example.appstudyenglish.model.KhoaHoc;
+import com.example.appstudyenglish.sqlite.SQLiteHelper;
 import com.example.appstudyenglish.ui.test.listening.TestListeningActivity;
 import com.example.appstudyenglish.ui.test.speaking.SpeakingActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,12 +117,12 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
         setRadioChecked();
         if(dem == 9){
             if (checkPoint){
-                point += 1;
+                point += 5;
             }
-            startActivity(new Intent(TestReadingActivity.this, SpeakingActivity.class));
+            savePointAndNextActivity();
         }else {
             if (checkPoint){
-                point += 1;
+                point += 5;
             }
             dem++;
             setData(cauHoiList.get(dem));
@@ -127,6 +130,14 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
                 setRadioButton();
             }
         }
+    }
+
+    private void savePointAndNextActivity() {
+        SQLiteHelper sqLiteHelper = new SQLiteHelper(getApplicationContext(), "Data.sqlite", null, 5);
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String userID = firebaseUser.getUid();
+        startActivity(new Intent(TestReadingActivity.this, SpeakingActivity.class));
+        sqLiteHelper.QueryData("UPDATE BaiTest SET DiemDoc='"+point+"' WHERE UserId='"+userID+"'");
     }
 
     private void setRadioChecked(){
@@ -150,10 +161,6 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
 
     private List<CauHoi> getData() {
         cauTraLoiList = new ArrayList<>();
-        cauTraLoiList.add(new CauTraLoi("Câu trả lời số 1",false));
-        cauTraLoiList.add(new CauTraLoi("Câu trả lời số 2",false));
-        cauTraLoiList.add(new CauTraLoi("Câu trả lời số 3",true));
-        cauTraLoiList.add(new CauTraLoi("Câu trả lời số 4",false));
 
         //cau1
         List<CauTraLoi> answerListenList1 = new ArrayList<>();

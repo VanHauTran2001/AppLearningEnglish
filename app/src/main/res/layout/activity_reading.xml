@@ -88,10 +88,11 @@
                 android:id="@+id/imgBack"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:padding="15dp"
-                android:background="?attr/selectableItemBackground"
                 android:layout_alignParentBottom="true"
-                android:src="@drawable/ic_back" />
+                android:background="?attr/selectableItemBackground"
+                android:padding="15dp"
+                android:src="@drawable/ic_back"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/imgNext"

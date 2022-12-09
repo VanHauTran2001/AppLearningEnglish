@@ -41,6 +41,10 @@ public class SplashActivity extends AppCompatActivity {
                 "MaKhoaHoc INTEGER," +
                 "NoiDung NVARCHAR(200)," +
                 "ThoiGian NVARCHAR(100))");
+        sqLiteHelper.QueryData("CREATE TABLE IF NOT EXISTS BaiTest(Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "UserId VARCHAR(100)," +
+                "DiemNghe INTEGER," +
+                "DiemDoc INTEGER)");
     }
 
     private void nextActivity(){
