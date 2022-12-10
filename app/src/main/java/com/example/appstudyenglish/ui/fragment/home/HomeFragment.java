@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment  implements KhoaHocAdapter.IKhoaHoc {
     private void addData() {
         listKhoaHoc = new ArrayList<>();
         listKhoaHoc.add(new KhoaHoc(10,R.drawable.khoa_5,"Chứng chỉ Vstep là gì ?","","19/05/2001",2001,""));
-        listKhoaHoc.add(new KhoaHoc(11,R.drawable.khoa_6,"Lợi ích của chứng chỉ Vstep ?","","06/09/2021",2001,""));
+        listKhoaHoc.add(new KhoaHoc(11,R.drawable.khoa_6,"Lợi ích của Vstep ?","","06/09/2021",2001,""));
         listKhoaHoc.add(new KhoaHoc(12,R.drawable.khoa_7,"Khi nào cần học Tiếng anh ?","","19/05/2001",2001,""));
 
         listKhoaHoc2 = new ArrayList<>();
