@@ -19,6 +19,9 @@
         android:theme="@style/Theme.AppStudyEnglish"
         tools:targetApi="31">
         <activity
+            android:name=".ui.chi_tiet_buoi_hoc.ChiTietBuoiHocActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.test.complete.AdviceActivity"
             android:exported="false" />
         <activity

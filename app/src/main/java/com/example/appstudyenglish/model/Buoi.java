@@ -1,27 +1,20 @@
 package com.example.appstudyenglish.model;
 
-public class Buoi {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Buoi implements Serializable {
     private String tenBuoi;
-    private String phan1;
-    private String tienDo1;
-    private String phan2;
-    private String tienDo2;
-    private String phan3;
-    private String tienDo3;
+    private ArrayList<BaiHocTrongNgay> baiHocTrongNgayArrayList;
     private int checkLoai;
 
     public Buoi(){
 
     }
 
-    public Buoi(String tenBuoi, String phan1, String tienDo1, String phan2, String tienDo2, String phan3, String tienDo3, int checkLoai) {
+    public Buoi(String tenBuoi, ArrayList<BaiHocTrongNgay> baiHocTrongNgayArrayList, int checkLoai) {
         this.tenBuoi = tenBuoi;
-        this.phan1 = phan1;
-        this.tienDo1 = tienDo1;
-        this.phan2 = phan2;
-        this.tienDo2 = tienDo2;
-        this.phan3 = phan3;
-        this.tienDo3 = tienDo3;
+        this.baiHocTrongNgayArrayList = baiHocTrongNgayArrayList;
         this.checkLoai = checkLoai;
     }
 
@@ -33,52 +26,12 @@ public class Buoi {
         this.tenBuoi = tenBuoi;
     }
 
-    public String getPhan1() {
-        return phan1;
+    public ArrayList<BaiHocTrongNgay> getBaiHocTrongNgayArrayList() {
+        return baiHocTrongNgayArrayList;
     }
 
-    public void setPhan1(String phan1) {
-        this.phan1 = phan1;
-    }
-
-    public String getTienDo1() {
-        return tienDo1;
-    }
-
-    public void setTienDo1(String tienDo1) {
-        this.tienDo1 = tienDo1;
-    }
-
-    public String getPhan2() {
-        return phan2;
-    }
-
-    public void setPhan2(String phan2) {
-        this.phan2 = phan2;
-    }
-
-    public String getTienDo2() {
-        return tienDo2;
-    }
-
-    public void setTienDo2(String tienDo2) {
-        this.tienDo2 = tienDo2;
-    }
-
-    public String getPhan3() {
-        return phan3;
-    }
-
-    public void setPhan3(String phan3) {
-        this.phan3 = phan3;
-    }
-
-    public String getTienDo3() {
-        return tienDo3;
-    }
-
-    public void setTienDo3(String tienDo3) {
-        this.tienDo3 = tienDo3;
+    public void setBaiHocTrongNgayArrayList(ArrayList<BaiHocTrongNgay> baiHocTrongNgayArrayList) {
+        this.baiHocTrongNgayArrayList = baiHocTrongNgayArrayList;
     }
 
     public int getCheckLoai() {

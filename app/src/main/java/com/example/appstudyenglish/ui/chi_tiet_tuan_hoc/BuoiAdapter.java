@@ -32,12 +32,12 @@ public class BuoiAdapter extends RecyclerView.Adapter<BuoiAdapter.NotificationVi
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
         Buoi buoi = iBuoi.getBuoi(position);
         holder.binding.txtBuoi.setText(buoi.getTenBuoi());
-        holder.binding.txtPhan1.setText(buoi.getPhan1());
-        holder.binding.txtPhan2.setText(buoi.getPhan2());
-        holder.binding.txtPhan3.setText(buoi.getPhan3());
-        holder.binding.txtPhanTram1.setText(buoi.getTienDo1()+"/20");
-        holder.binding.txtPhanTram2.setText(buoi.getTienDo2()+"/20");
-        holder.binding.txtPhanTram3.setText(buoi.getTienDo3()+"/20");
+        holder.binding.txtPhan1.setText(buoi.getBaiHocTrongNgayArrayList().get(0).getBaiHoc());
+        holder.binding.txtPhan2.setText(buoi.getBaiHocTrongNgayArrayList().get(1).getBaiHoc());
+        holder.binding.txtPhan3.setText(buoi.getBaiHocTrongNgayArrayList().get(2).getBaiHoc());
+        holder.binding.txtPhanTram1.setText(buoi.getBaiHocTrongNgayArrayList().get(0).getTienDo()+"/20");
+        holder.binding.txtPhanTram2.setText(buoi.getBaiHocTrongNgayArrayList().get(1).getTienDo()+"/20");
+        holder.binding.txtPhanTram3.setText(buoi.getBaiHocTrongNgayArrayList().get(2).getTienDo()+"/20");
         if(buoi.getCheckLoai() == 1){
             holder.binding.imgCapacity.setImageResource(R.drawable.ic_headphones);
         }else if(buoi.getCheckLoai() == 2){
@@ -47,6 +47,12 @@ public class BuoiAdapter extends RecyclerView.Adapter<BuoiAdapter.NotificationVi
         } else if(buoi.getCheckLoai() == 4){
             holder.binding.imgCapacity.setImageResource(R.drawable.ic_speak);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iBuoi.onClickBuoi(position);
+            }
+        });
     }
 
     @Override
@@ -57,6 +63,7 @@ public class BuoiAdapter extends RecyclerView.Adapter<BuoiAdapter.NotificationVi
     public interface IBuoi{
         int getCount();
         Buoi getBuoi(int position);
+        void onClickBuoi(int position);
     }
     public class NotificationViewHolder extends RecyclerView.ViewHolder{
         ItemBuoiHocBinding binding;
