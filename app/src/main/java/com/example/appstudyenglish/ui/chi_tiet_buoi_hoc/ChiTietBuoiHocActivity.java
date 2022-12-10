@@ -24,6 +24,7 @@ public class ChiTietBuoiHocActivity extends AppCompatActivity implements BaiHocA
         binding = DataBindingUtil.setContentView(this,R.layout.activity_chi_tiet_buoi_hoc);
         buoi = (Buoi) getIntent().getSerializableExtra("buoi");
         initRecyclerview();
+        binding.txtBaiHoc.setText(buoi.getTenBuoi());
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
