@@ -34,7 +34,7 @@ public class ChiTietBuoiHocActivity extends AppCompatActivity implements BaiHocA
     }
 
     private void initRecyclerview() {
-        baiHocAdapter = new BaiHocAdapter(this);
+        baiHocAdapter = new BaiHocAdapter(this,this);
         binding.rcvBaiHoc.setLayoutManager(new LinearLayoutManager(this));
         binding.rcvBaiHoc.setAdapter(baiHocAdapter);
     }
