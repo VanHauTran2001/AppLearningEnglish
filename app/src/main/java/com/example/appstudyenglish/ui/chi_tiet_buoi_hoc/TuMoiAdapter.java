@@ -1,6 +1,8 @@
 package com.example.appstudyenglish.ui.chi_tiet_buoi_hoc;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -28,7 +30,7 @@ public class TuMoiAdapter extends RecyclerView.Adapter<TuMoiAdapter.Notification
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationViewHolder holder, @SuppressLint("RecyclerView") int position) {
         TuMoi tuMoi = iTuMoi.getTuMoi(position);
         holder.binding.txtTenBaiHoc.setText(tuMoi.getContent());
         if(tuMoi.getStatus() == 0){
@@ -36,6 +38,12 @@ public class TuMoiAdapter extends RecyclerView.Adapter<TuMoiAdapter.Notification
         }else {
             holder.binding.icVolum.setImageResource(R.drawable.ic_volum_off);
         }
+        holder.binding.icVolum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iTuMoi.onClickVolum(position);
+            }
+        });
     }
 
     @Override
@@ -46,6 +54,7 @@ public class TuMoiAdapter extends RecyclerView.Adapter<TuMoiAdapter.Notification
     public interface ITuMoi{
         int getCount();
         TuMoi getTuMoi(int position);
+        void onClickVolum(int position);
     }
     public class NotificationViewHolder extends RecyclerView.ViewHolder{
         ItemTuMoiBinding binding;

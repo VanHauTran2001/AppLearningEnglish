@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,9 +12,10 @@ import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityChiTietBuoiHocBinding;
 import com.example.appstudyenglish.model.BaiHocTrongNgay;
 import com.example.appstudyenglish.model.Buoi;
+import com.example.appstudyenglish.ui.test.listening.TestListeningActivity;
 
 public class ChiTietBuoiHocActivity extends AppCompatActivity implements BaiHocAdapter.IBaiHoc {
-
+    private MediaPlayer mediaPlayer;
     private ActivityChiTietBuoiHocBinding binding;
     private Buoi buoi;
     private BaiHocAdapter baiHocAdapter;
@@ -22,6 +24,7 @@ public class ChiTietBuoiHocActivity extends AppCompatActivity implements BaiHocA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_chi_tiet_buoi_hoc);
+        mediaPlayer = MediaPlayer.create(ChiTietBuoiHocActivity.this,R.raw.quater);
         buoi = (Buoi) getIntent().getSerializableExtra("buoi");
         initRecyclerview();
         binding.txtBaiHoc.setText(buoi.getTenBuoi());
@@ -47,5 +50,10 @@ public class ChiTietBuoiHocActivity extends AppCompatActivity implements BaiHocA
     @Override
     public BaiHocTrongNgay getBaiHoc(int position) {
         return buoi.getBaiHocTrongNgayArrayList().get(position);
+    }
+
+    @Override
+    public void onClickVolumn(int position) {
+        mediaPlayer.start();
     }
 }

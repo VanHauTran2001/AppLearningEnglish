@@ -91,9 +91,15 @@ public class BaiHocAdapter extends RecyclerView.Adapter<BaiHocAdapter.Notificati
         return tuMoiList.get(position);
     }
 
+    @Override
+    public void onClickVolum(int position) {
+        iBaiHoc.onClickVolumn(position);
+    }
+
     public interface IBaiHoc{
         int getCount();
         BaiHocTrongNgay getBaiHoc(int position);
+        void onClickVolumn(int position);
     }
     public class NotificationViewHolder extends RecyclerView.ViewHolder{
         ItemBaiHocBinding binding;

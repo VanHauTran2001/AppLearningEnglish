@@ -15,6 +15,9 @@
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/ic_baseline_seting_24.xml" value="0.1695" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/drawable/ic_play.xml" value="0.181" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_advice.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_chi_tiet_buoi_hoc.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_chi_tiet_khoa_hoc.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_chi_tiet_tuan_hoc.xml" value="0.1431159420289855" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_complete.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_log_in.xml" value="0.12360688956433637" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
@@ -26,7 +29,12 @@
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/activity_writting.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_bai_hoc.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_khoa_hoc.xml" value="0.264" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_khoa_hoc_cua_ban.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_khoa_hoc_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_tu_moi.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub_Android44/AppLearningEnglish/app/src/main/res/layout/item_tuan.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
