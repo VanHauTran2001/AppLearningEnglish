@@ -1,6 +1,8 @@
 package com.example.appstudyenglish.ui.chi_tiet_buoi_hoc;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,6 @@ import com.example.appstudyenglish.model.BaiHocTrongNgay;
 import com.example.appstudyenglish.model.TuMoi;
 
 public class TuMoiAdapter extends RecyclerView.Adapter<TuMoiAdapter.NotificationViewHolder> {
-
     private ITuMoi iTuMoi;
 
     public TuMoiAdapter(ITuMoi iTuMoi) {
@@ -33,11 +34,6 @@ public class TuMoiAdapter extends RecyclerView.Adapter<TuMoiAdapter.Notification
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, @SuppressLint("RecyclerView") int position) {
         TuMoi tuMoi = iTuMoi.getTuMoi(position);
         holder.binding.txtTenBaiHoc.setText(tuMoi.getContent());
-        if(tuMoi.getStatus() == 0){
-            holder.binding.icVolum.setImageResource(R.drawable.ic_volum_on);
-        }else {
-            holder.binding.icVolum.setImageResource(R.drawable.ic_volum_off);
-        }
         holder.binding.icVolum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +50,7 @@ public class TuMoiAdapter extends RecyclerView.Adapter<TuMoiAdapter.Notification
     public interface ITuMoi{
         int getCount();
         TuMoi getTuMoi(int position);
+        Context getContext();
         void onClickVolum(int position);
     }
     public class NotificationViewHolder extends RecyclerView.ViewHolder{

@@ -1,6 +1,7 @@
 package com.example.appstudyenglish.ui.chi_tiet_buoi_hoc;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,13 +68,14 @@ public class BaiHocAdapter extends RecyclerView.Adapter<BaiHocAdapter.Notificati
 
     private void addDataBaiHoc(){
         tuMoiList = new ArrayList<>();
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",0));
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",1));
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",0));
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",1));
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",1));
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",0));
-        tuMoiList.add(new TuMoi("Quarter /ˈkwɔː.tər/ ",0));
+        tuMoiList.add(new TuMoi("Window: /ˈwɪn.doʊ/ ",R.raw.window));
+        tuMoiList.add(new TuMoi("Beautiful: /ˈbjuː.t̬ə.fəl/ ",R.raw.beautiful));
+        tuMoiList.add(new TuMoi("Exercise: /ˈek.sɚ.saɪz/ ",R.raw.exercise));
+        tuMoiList.add(new TuMoi("Danger: /ˈdeɪn.dʒɚ/ ",R.raw.danger));
+        tuMoiList.add(new TuMoi("Awesome: /ˈɑː.səm/ ",R.raw.awesome));
+        tuMoiList.add(new TuMoi("Prison: /ˈprɪz.ən/ ",R.raw.prison));
+        tuMoiList.add(new TuMoi("House: /haʊs/ ",R.raw.house));
+        tuMoiList.add(new TuMoi("Winner: /ˈwɪn.ɚ/ ",R.raw.winner));
     }
 
     @Override
@@ -92,14 +94,20 @@ public class BaiHocAdapter extends RecyclerView.Adapter<BaiHocAdapter.Notificati
     }
 
     @Override
+    public Context getContext() {
+        return iBaiHoc.getContext();
+    }
+
+    @Override
     public void onClickVolum(int position) {
-        iBaiHoc.onClickVolumn(position);
+       MediaPlayer mediaPlayer = MediaPlayer.create(getContext(),tuMoiList.get(position).getMp3());
+       mediaPlayer.start();
     }
 
     public interface IBaiHoc{
         int getCount();
         BaiHocTrongNgay getBaiHoc(int position);
-        void onClickVolumn(int position);
+        Context getContext();
     }
     public class NotificationViewHolder extends RecyclerView.ViewHolder{
         ItemBaiHocBinding binding;
