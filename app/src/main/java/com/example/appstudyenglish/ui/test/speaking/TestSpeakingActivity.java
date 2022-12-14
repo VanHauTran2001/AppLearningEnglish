@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.appstudyenglish.R;
 import com.example.appstudyenglish.databinding.ActivityTestSpeakingBinding;
+import com.example.appstudyenglish.ui.test.listening.TestListeningActivity;
 import com.example.appstudyenglish.ui.test.writting.WrittingActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -156,7 +157,7 @@ public class TestSpeakingActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                startActivity(new Intent(TestSpeakingActivity.this, WrittingActivity.class));
+                Toast.makeText(TestSpeakingActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
                 mediaPlayer.stop();
             }
 

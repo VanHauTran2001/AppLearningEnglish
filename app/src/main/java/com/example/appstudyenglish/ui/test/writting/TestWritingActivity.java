@@ -37,7 +37,7 @@ public class TestWritingActivity extends AppCompatActivity {
                 binding.txtTimeWrite.setText(String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds));
             }
             public void onFinish() {
-                startActivity(new Intent(TestWritingActivity.this, CompleteActivity.class));
+                Toast.makeText(TestWritingActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
             }
         }.start();
     }

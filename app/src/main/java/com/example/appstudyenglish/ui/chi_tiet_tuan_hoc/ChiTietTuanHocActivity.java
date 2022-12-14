@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,12 @@ import com.example.appstudyenglish.model.BaiHocTrongNgay;
 import com.example.appstudyenglish.model.Buoi;
 import com.example.appstudyenglish.model.Tuan;
 import com.example.appstudyenglish.ui.chi_tiet_buoi_hoc.ChiTietBuoiHocActivity;
+import com.example.appstudyenglish.ui.chi_tiet_tuan_hoc.reading.BaiHocReadingActivity;
+import com.example.appstudyenglish.ui.chi_tiet_tuan_hoc.speaking.BaiHocSpeakingActivity;
+import com.example.appstudyenglish.ui.chi_tiet_tuan_hoc.writting.BaiHocWritingActivity;
+import com.example.appstudyenglish.ui.test.reading.ReadingActivity;
+import com.example.appstudyenglish.ui.test.speaking.SpeakingActivity;
+import com.example.appstudyenglish.ui.test.writting.WrittingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +75,29 @@ public class ChiTietTuanHocActivity extends AppCompatActivity implements BuoiAda
     public void onClickBuoi(int position) {
         Intent intent = new Intent(ChiTietTuanHocActivity.this, ChiTietBuoiHocActivity.class);
         intent.putExtra("buoi",tuan.getBuoiArrayList().get(position));
+        startActivity(intent);
+    }
+
+    @Override
+    public Context getContext() {
+        return getApplicationContext();
+    }
+
+    @Override
+    public void onClickReading(int position) {
+        Intent intent = new Intent(ChiTietTuanHocActivity.this, BaiHocReadingActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClickWriting(int position) {
+        Intent intent = new Intent(ChiTietTuanHocActivity.this, BaiHocWritingActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClickSpeaking(int position) {
+        Intent intent = new Intent(ChiTietTuanHocActivity.this, BaiHocSpeakingActivity.class);
         startActivity(intent);
     }
 }

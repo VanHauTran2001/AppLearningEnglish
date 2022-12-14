@@ -1,5 +1,8 @@
 package com.example.appstudyenglish.ui.chi_tiet_tuan_hoc;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +32,7 @@ public class BuoiAdapter extends RecyclerView.Adapter<BuoiAdapter.NotificationVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Buoi buoi = iBuoi.getBuoi(position);
         holder.binding.txtBuoi.setText(buoi.getTenBuoi());
         holder.binding.txtPhan1.setText(buoi.getBaiHocTrongNgayArrayList().get(0).getBaiHoc());
@@ -50,7 +53,15 @@ public class BuoiAdapter extends RecyclerView.Adapter<BuoiAdapter.NotificationVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iBuoi.onClickBuoi(position);
+                if(buoi.getCheckLoai() == 1){
+                    iBuoi.onClickBuoi(position);
+                }else if(buoi.getCheckLoai() == 2){
+                    iBuoi.onClickReading(position);
+                } else if(buoi.getCheckLoai() == 3){
+                    iBuoi.onClickWriting(position);
+                } else if(buoi.getCheckLoai() == 4){
+                    iBuoi.onClickSpeaking(position);
+                }
             }
         });
     }
@@ -64,6 +75,10 @@ public class BuoiAdapter extends RecyclerView.Adapter<BuoiAdapter.NotificationVi
         int getCount();
         Buoi getBuoi(int position);
         void onClickBuoi(int position);
+        Context getContext();
+        void onClickReading(int position);
+        void onClickWriting(int position);
+        void onClickSpeaking(int position);
     }
     public class NotificationViewHolder extends RecyclerView.ViewHolder{
         ItemBuoiHocBinding binding;

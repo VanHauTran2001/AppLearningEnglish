@@ -1,5 +1,6 @@
 package com.example.appstudyenglish.ui.chi_tiet_khoa_hoc;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class TuanAdapter extends RecyclerView.Adapter<TuanAdapter.NotificationVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Tuan tuan = iTuan.getTuan(position);
         holder.binding.txtTuan.setText(tuan.getTitle());
         if(tuan.getStatus() == 1){

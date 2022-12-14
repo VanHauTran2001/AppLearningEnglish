@@ -61,18 +61,15 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
     }
     private void onSetTimeDown() {
         new CountDownTimer(mTimeInMillis, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 mTimeInMillis = millisUntilFinished;
                 int minutes = (int) (mTimeInMillis/1000)/60;
                 int seconds = (int) (mTimeInMillis/1000)%60;
                 binding.txtTimeRead.setText(String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds));
             }
-
             public void onFinish() {
-                startActivity(new Intent(TestReadingActivity.this, SpeakingActivity.class));
+                Toast.makeText(TestReadingActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
             }
-
         }.start();
     }
 
