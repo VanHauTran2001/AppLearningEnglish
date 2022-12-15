@@ -28,7 +28,6 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
 
     private ActivityTestReadingBinding binding;
     private List<CauHoi> cauHoiList;
-    private List<CauTraLoi> cauTraLoiList;
     private int dem = 0;
     private static int point = 0;
     private boolean checkPoint;
@@ -40,7 +39,6 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_test_reading);
         cauHoiList = getData();
-        cauTraLoiList = new ArrayList<>();
         if (cauHoiList.isEmpty()){
             return;
         }
@@ -157,8 +155,6 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
     }
 
     private List<CauHoi> getData() {
-        cauTraLoiList = new ArrayList<>();
-
         //cau1
         List<CauTraLoi> answerListenList1 = new ArrayList<>();
         answerListenList1.add(new CauTraLoi("Student",false));

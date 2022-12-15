@@ -19,6 +19,9 @@
         android:theme="@style/Theme.AppStudyEnglish"
         tools:targetApi="31">
         <activity
+            android:name=".ui.chi_tiet_tuan_hoc.complete.CompleteBaiHocActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.chi_tiet_tuan_hoc.writting.BaiHocWritingActivity"
             android:exported="false" />
         <activity
