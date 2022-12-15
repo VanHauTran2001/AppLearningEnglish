@@ -157,7 +157,6 @@ public class TestSpeakingActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                Toast.makeText(TestSpeakingActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
                 mediaPlayer.stop();
             }
 

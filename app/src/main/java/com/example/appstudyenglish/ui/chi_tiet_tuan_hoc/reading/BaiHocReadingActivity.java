@@ -14,6 +14,7 @@ import com.example.appstudyenglish.databinding.ActivityBaiHocReadingBinding;
 import com.example.appstudyenglish.model.CauHoi;
 import com.example.appstudyenglish.model.CauTraLoi;
 import com.example.appstudyenglish.ui.chi_tiet_tuan_hoc.ChiTietTuanHocActivity;
+import com.example.appstudyenglish.ui.chi_tiet_tuan_hoc.complete.CompleteBaiHocActivity;
 import com.example.appstudyenglish.ui.test.reading.ReadingActivity;
 import com.example.appstudyenglish.ui.test.reading.TestReadingActivity;
 
@@ -59,7 +60,7 @@ public class BaiHocReadingActivity extends AppCompatActivity{
                 binding.txtTimeRead.setText(String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds));
             }
             public void onFinish() {
-                Toast.makeText(BaiHocReadingActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
+
             }
         }.start();
     }
@@ -83,20 +84,19 @@ public class BaiHocReadingActivity extends AppCompatActivity{
     private void onClickBackQuestion() {
         setRadioChecked();
         if(dem == 0){
-            startActivity(new Intent(BaiHocReadingActivity.this, ChiTietTuanHocActivity.class));
+            finish();
         }else {
             dem--;
             setData(cauHoiList.get(dem));
-            if(cauHoiList.get(dem-1).getDapAnChon() == 0){
+            if(cauHoiList.get(dem).getDapAnChon() == 0){
                 setRadioButton();
-                Toast.makeText(this, ""+dem, Toast.LENGTH_SHORT).show();
             }
         }
     }
     private void onClickNextQuestion() {
         setRadioChecked();
-        if(dem == 9){
-           // savePointAndNextActivity();
+        if(dem == cauHoiList.size()-1){
+           startActivity(new Intent(BaiHocReadingActivity.this, CompleteBaiHocActivity.class));
         }else {
             dem++;
             setData(cauHoiList.get(dem));

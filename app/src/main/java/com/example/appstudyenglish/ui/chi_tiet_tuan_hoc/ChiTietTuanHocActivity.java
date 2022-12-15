@@ -29,7 +29,7 @@ import java.util.List;
 public class ChiTietTuanHocActivity extends AppCompatActivity implements BuoiAdapter.IBuoi {
 
     private ActivityChiTietTuanHocBinding binding;
-    private Tuan tuan;
+    private Tuan tuan = new Tuan();
     private BuoiAdapter buoiAdapter;
 
     @Override
@@ -37,7 +37,6 @@ public class ChiTietTuanHocActivity extends AppCompatActivity implements BuoiAda
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_chi_tiet_tuan_hoc);
         tuan = (Tuan) getIntent().getSerializableExtra("tuan");
-        Log.d("CheckTuan",tuan.getBuoiArrayList().size()+"");
         setDataToView();
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +54,9 @@ public class ChiTietTuanHocActivity extends AppCompatActivity implements BuoiAda
     }
 
     private void setDataToView() {
-        binding.txtTuan.setText(tuan.getTitle());
+        if (tuan != null){
+            binding.txtTuan.setText(tuan.getTitle());
+        }
         binding.tvPhanTram.setText("69%");
         binding.progressBar.setProgress(69);
         binding.progressBar.setMax(100);
@@ -69,13 +70,16 @@ public class ChiTietTuanHocActivity extends AppCompatActivity implements BuoiAda
     @Override
     public Buoi getBuoi(int position) {
         return tuan.getBuoiArrayList().get(position);
+
     }
 
     @Override
     public void onClickBuoi(int position) {
-        Intent intent = new Intent(ChiTietTuanHocActivity.this, ChiTietBuoiHocActivity.class);
-        intent.putExtra("buoi",tuan.getBuoiArrayList().get(position));
-        startActivity(intent);
+        if (tuan != null){
+            Intent intent = new Intent(ChiTietTuanHocActivity.this, ChiTietBuoiHocActivity.class);
+            intent.putExtra("buoi",tuan.getBuoiArrayList().get(position));
+            startActivity(intent);
+        }
     }
 
     @Override

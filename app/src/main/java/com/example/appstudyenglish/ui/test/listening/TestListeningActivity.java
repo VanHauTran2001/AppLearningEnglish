@@ -63,7 +63,7 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
             }
 
             public void onFinish() {
-                Toast.makeText(TestListeningActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
+
             }
 
         }.start();

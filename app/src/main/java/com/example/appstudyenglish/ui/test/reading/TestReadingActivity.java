@@ -66,7 +66,7 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
                 binding.txtTimeRead.setText(String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds));
             }
             public void onFinish() {
-                Toast.makeText(TestReadingActivity.this,"Bạn đã hết thời gian",Toast.LENGTH_SHORT).show();
+
             }
         }.start();
     }
@@ -101,7 +101,7 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
         }else {
             dem--;
             setData(cauHoiList.get(dem));
-            if(cauHoiList.get(dem-1).getDapAnChon() == 0){
+            if(cauHoiList.get(dem).getDapAnChon() == 0){
                 setRadioButton();
                 Toast.makeText(this, ""+dem, Toast.LENGTH_SHORT).show();
             }
