@@ -32,12 +32,36 @@
             </RelativeLayout>
         </RelativeLayout>
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You should spend about 20 minutes on this task"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/imgQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/writing"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:id="@+id/txtQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Write a short paragraph introduce yourself , hobbies , hometown and place of work ."
-            android:textSize="18dp"
-            android:textColor="@color/black"/>
+            android:maxLines="4"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="You should write at least 120 words."
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +71,7 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:id="@+id/edtWrite"
-            android:hint="Điền từ còn thiếu"/>
+            android:hint="Viết nội dùng"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"

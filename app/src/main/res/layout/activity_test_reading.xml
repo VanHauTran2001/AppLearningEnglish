@@ -70,9 +70,10 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:text="Hear the four statements , look at the picture and choose the statement that best describes what you see in the picture"
+            android:text=""
             android:textColor="@color/black"
-            android:textSize="18dp"/>
+            android:textStyle="bold"
+            android:textSize="17dp"/>
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_margin="30dp"
@@ -85,7 +86,7 @@
                 android:textColor="@color/black"
                 android:backgroundTint="@color/black"
                 android:text="This is example"
-                android:textSize="20dp"/>
+                android:textSize="18dp"/>
             <RadioButton
                 android:id="@+id/rdDapAn2"
                 android:layout_width="wrap_content"
@@ -95,7 +96,7 @@
                 android:backgroundTint="@color/black"
                 android:text="This is example"
                 android:layout_marginTop="10dp"
-                android:textSize="20dp"/>
+                android:textSize="18dp"/>
             <RadioButton
                 android:id="@+id/rdDapAn3"
                 android:layout_width="wrap_content"
@@ -104,7 +105,7 @@
                 android:backgroundTint="@color/black"
                 android:text="This is example"
                 android:layout_marginTop="10dp"
-                android:textSize="20dp"/>
+                android:textSize="18dp"/>
             <RadioButton
                 android:id="@+id/rdDapAn4"
                 android:layout_width="wrap_content"
@@ -114,7 +115,7 @@
                 android:backgroundTint="@color/black"
                 android:text="This is example"
                 android:layout_marginTop="10dp"
-                android:textSize="20dp"/>
+                android:textSize="18dp"/>
         </RadioGroup>
 
         <RelativeLayout

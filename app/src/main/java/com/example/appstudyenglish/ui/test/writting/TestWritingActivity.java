@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public class TestWritingActivity extends AppCompatActivity {
     private ActivityTestWritingBinding binding;
-    private long mTimeInMillis = 300000;
+    private long mTimeInMillis = 1200000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

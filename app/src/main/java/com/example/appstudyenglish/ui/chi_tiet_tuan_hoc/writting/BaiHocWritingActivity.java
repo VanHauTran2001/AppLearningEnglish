@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class BaiHocWritingActivity extends AppCompatActivity {
     private ActivityBaiHocWritingBinding binding;
-    private long mTimeInMillis = 300000;
+    private long mTimeInMillis = 1200000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -157,35 +157,35 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
     private List<CauHoi> getData() {
         //cau1
         List<CauTraLoi> answerListenList1 = new ArrayList<>();
-        answerListenList1.add(new CauTraLoi("Student",false));
-        answerListenList1.add(new CauTraLoi("Teacher",false));
-        answerListenList1.add(new CauTraLoi("School",true));
-        answerListenList1.add(new CauTraLoi("Children",false));
+        answerListenList1.add(new CauTraLoi("The production procession",false));
+        answerListenList1.add(new CauTraLoi("The equipment needed",false));
+        answerListenList1.add(new CauTraLoi("The high cost",true));
+        answerListenList1.add(new CauTraLoi("The role of the",false));
         //cau2
         List<CauTraLoi> answerListenList2 = new ArrayList<>();
-        answerListenList2.add(new CauTraLoi("Car",true));
-        answerListenList2.add(new CauTraLoi("Chair",false));
-        answerListenList2.add(new CauTraLoi("Desk",false));
-        answerListenList2.add(new CauTraLoi("Table",false));
+        answerListenList2.add(new CauTraLoi("first frame",true));
+        answerListenList2.add(new CauTraLoi("middle frames",false));
+        answerListenList2.add(new CauTraLoi("last frame",false));
+        answerListenList2.add(new CauTraLoi("entire sequences of frames",false));
         //cau3
         List<CauTraLoi> answerListenList3 = new ArrayList<>();
-        answerListenList3.add(new CauTraLoi("12",false));
-        answerListenList3.add(new CauTraLoi("2",false));
-        answerListenList3.add(new CauTraLoi("4",false));
-        answerListenList3.add(new CauTraLoi("6",true));
+        answerListenList3.add(new CauTraLoi("formulas",false));
+        answerListenList3.add(new CauTraLoi("objects",false));
+        answerListenList3.add(new CauTraLoi("numbers",false));
+        answerListenList3.add(new CauTraLoi("database",true));
 
         //cau4
         List<CauTraLoi> answerListenList4= new ArrayList<>();
-        answerListenList4.add(new CauTraLoi("Finish",false));
-        answerListenList4.add(new CauTraLoi("Cat",false));
-        answerListenList4.add(new CauTraLoi("Dog",true));
-        answerListenList4.add(new CauTraLoi("Birth",false));
+        answerListenList4.add(new CauTraLoi("drawing several versions",false));
+        answerListenList4.add(new CauTraLoi("enlarging one frame",false));
+        answerListenList4.add(new CauTraLoi("analyzing the sequence",true));
+        answerListenList4.add(new CauTraLoi("using computer calculations",false));
         //cau5
         List<CauTraLoi> answerListenList5 = new ArrayList<>();
-        answerListenList5.add(new CauTraLoi("Summer",true));
-        answerListenList5.add(new CauTraLoi("Spring",false));
-        answerListenList5.add(new CauTraLoi("Auturm",false));
-        answerListenList5.add(new CauTraLoi("Winter",false));
+        answerListenList5.add(new CauTraLoi("separates",true));
+        answerListenList5.add(new CauTraLoi("registers",false));
+        answerListenList5.add(new CauTraLoi("describes",false));
+        answerListenList5.add(new CauTraLoi("numbers",false));
         //cau6
         List<CauTraLoi> answerListenList6 = new ArrayList<>();
         answerListenList6.add(new CauTraLoi("12",false));
@@ -195,41 +195,41 @@ public class TestReadingActivity extends AppCompatActivity implements View.OnCli
 
         //cau7
         List<CauTraLoi> answerListenList7 = new ArrayList<>();
-        answerListenList7.add(new CauTraLoi("Information Technology",false));
-        answerListenList7.add(new CauTraLoi("Data Sceince",false));
-        answerListenList7.add(new CauTraLoi("Big Data",true));
-        answerListenList7.add(new CauTraLoi("Block Chain",false));
+        answerListenList7.add(new CauTraLoi("before",false));
+        answerListenList7.add(new CauTraLoi("since",false));
+        answerListenList7.add(new CauTraLoi("after",true));
+        answerListenList7.add(new CauTraLoi("while",false));
         //cau8
         List<CauTraLoi> answerListenList8 = new ArrayList<>();
-        answerListenList8.add(new CauTraLoi("Android",true));
-        answerListenList8.add(new CauTraLoi("IOS",false));
-        answerListenList8.add(new CauTraLoi("React Native",false));
-        answerListenList8.add(new CauTraLoi("Flutter",false));
+        answerListenList8.add(new CauTraLoi("new",true));
+        answerListenList8.add(new CauTraLoi("extra",false));
+        answerListenList8.add(new CauTraLoi("accelerating",false));
+        answerListenList8.add(new CauTraLoi("surprising",false));
         //cau9
         List<CauTraLoi> answerListenList9 = new ArrayList<>();
-        answerListenList9.add(new CauTraLoi("Book",false));
-        answerListenList9.add(new CauTraLoi("Pen",false));
-        answerListenList9.add(new CauTraLoi("Door",false));
-        answerListenList9.add(new CauTraLoi("Color",true));
+        answerListenList9.add(new CauTraLoi("possibility",false));
+        answerListenList9.add(new CauTraLoi("position",false));
+        answerListenList9.add(new CauTraLoi("time",false));
+        answerListenList9.add(new CauTraLoi("job",true));
 
         //cau10
         List<CauTraLoi> answerListenList10 = new ArrayList<>();
-        answerListenList10.add(new CauTraLoi("Dentis",false));
-        answerListenList10.add(new CauTraLoi("Lock",false));
-        answerListenList10.add(new CauTraLoi("Jonh",false));
-        answerListenList10.add(new CauTraLoi("Swim",true));
+        answerListenList10.add(new CauTraLoi("Canadians",false));
+        answerListenList10.add(new CauTraLoi("years",false));
+        answerListenList10.add(new CauTraLoi("decades",false));
+        answerListenList10.add(new CauTraLoi("marriages",true));
 
         cauHoiList = new ArrayList<>();
-        cauHoiList.add(new CauHoi(1,"What is your name ?",answerListenList1,0));
-        cauHoiList.add(new CauHoi(2,"How often do you go to the office ?",answerListenList2,0));
-        cauHoiList.add(new CauHoi(3,"How many people are there do you have ?",answerListenList3,0));
-        cauHoiList.add(new CauHoi(4,"What is your name ?",answerListenList4,0));
-        cauHoiList.add(new CauHoi(5,"How often do you go to the office ?",answerListenList5,0));
-        cauHoiList.add(new CauHoi(6,"How many people are there do you have ?",answerListenList6,0));
-        cauHoiList.add(new CauHoi(7,"What is your name ?",answerListenList7,0));
-        cauHoiList.add(new CauHoi(8,"How often do you go to the office ?",answerListenList8,0));
-        cauHoiList.add(new CauHoi(9,"How many people are there do you have ?",answerListenList9,0));
-        cauHoiList.add(new CauHoi(10,"How many people are there do you have ?",answerListenList10,0));
+        cauHoiList.add(new CauHoi(1,"What aspect of computer animation does the passage mainly discuss?",answerListenList1,0));
+        cauHoiList.add(new CauHoi(2,"According to the passage, in computer-assisted animation the role of the computer is to draw the _____.",answerListenList2,0));
+        cauHoiList.add(new CauHoi(3,"The word “they” in the second paragraph refers to .",answerListenList3,0));
+        cauHoiList.add(new CauHoi(4,"According to the passage, the frame buffers mentioned in the third paragraph are used to ____.",answerListenList4,0));
+        cauHoiList.add(new CauHoi(5,"According to the passage, the positions and colors of the figures in high-tech animation are determined by ____.",answerListenList5,0));
+        cauHoiList.add(new CauHoi(6,"The word “captures” in the fourth paragraph is closest in meaning to _____.",answerListenList6,0));
+        cauHoiList.add(new CauHoi(7,"The word “Once” in the fourth paragraph is closest in meaning to_____.",answerListenList7,0));
+        cauHoiList.add(new CauHoi(8,"According to the passage, how do computer-animation companies often test motion?",answerListenList8,0));
+        cauHoiList.add(new CauHoi(9,"The word “task” in the fourth paragraph is closest in meaning to____.",answerListenList9,0));
+        cauHoiList.add(new CauHoi(10,"The word “five” in bold refers to .",answerListenList10,0));
 
         return cauHoiList;
     }

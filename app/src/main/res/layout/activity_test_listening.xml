@@ -95,6 +95,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:id="@+id/txtQuestionListen"
+            android:textStyle="bold"
             android:text="Hear the four statements , look at the picture and choose the statement that best describes what you see in the picture"
             android:textColor="@color/black"
             android:textSize="18dp"/>

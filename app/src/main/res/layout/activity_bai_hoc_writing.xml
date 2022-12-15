@@ -72,7 +72,7 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:id="@+id/edtWrite"
-            android:hint="Nhập nội dùng ......."/>
+            android:hint="Viết nội dùng"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_marginBottom="30dp"

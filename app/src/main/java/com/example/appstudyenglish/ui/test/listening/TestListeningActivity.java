@@ -231,78 +231,78 @@ public class TestListeningActivity extends AppCompatActivity implements View.OnC
         List<CauHoi> questionList = new ArrayList<>();
         //cau1
         List<CauTraLoi> answerListenList1 = new ArrayList<>();
-        answerListenList1.add(new CauTraLoi("Student",false));
-        answerListenList1.add(new CauTraLoi("Teacher",false));
-        answerListenList1.add(new CauTraLoi("School",true));
-        answerListenList1.add(new CauTraLoi("Children",false));
+        answerListenList1.add(new CauTraLoi("two",false));
+        answerListenList1.add(new CauTraLoi("three",false));
+        answerListenList1.add(new CauTraLoi("four",true));
+        answerListenList1.add(new CauTraLoi("five",false));
         //cau2
         List<CauTraLoi> answerListenList2 = new ArrayList<>();
-        answerListenList2.add(new CauTraLoi("Car",true));
-        answerListenList2.add(new CauTraLoi("Chair",false));
-        answerListenList2.add(new CauTraLoi("Desk",false));
-        answerListenList2.add(new CauTraLoi("Table",false));
+        answerListenList2.add(new CauTraLoi("originated",true));
+        answerListenList2.add(new CauTraLoi("destroyed",false));
+        answerListenList2.add(new CauTraLoi("inferred",false));
+        answerListenList2.add(new CauTraLoi("discussed",false));
         //cau3
         List<CauTraLoi> answerListenList3 = new ArrayList<>();
-        answerListenList3.add(new CauTraLoi("12",false));
-        answerListenList3.add(new CauTraLoi("2",false));
-        answerListenList3.add(new CauTraLoi("4",false));
-        answerListenList3.add(new CauTraLoi("6",true));
+        answerListenList3.add(new CauTraLoi("fish hook",false));
+        answerListenList3.add(new CauTraLoi("bow and arrow",false));
+        answerListenList3.add(new CauTraLoi("hatchet",false));
+        answerListenList3.add(new CauTraLoi("pottery",true));
 
         //cau4
         List<CauTraLoi> answerListenList4= new ArrayList<>();
-        answerListenList4.add(new CauTraLoi("Finish",false));
-        answerListenList4.add(new CauTraLoi("Cat",false));
-        answerListenList4.add(new CauTraLoi("Dog",true));
-        answerListenList4.add(new CauTraLoi("Birth",false));
+        answerListenList4.add(new CauTraLoi("farming",false));
+        answerListenList4.add(new CauTraLoi("clothing",false));
+        answerListenList4.add(new CauTraLoi("living indoors",true));
+        answerListenList4.add(new CauTraLoi("using fire",false));
         //cau5
         List<CauTraLoi> answerListenList5 = new ArrayList<>();
-        answerListenList5.add(new CauTraLoi("Summer",true));
-        answerListenList5.add(new CauTraLoi("Spring",false));
-        answerListenList5.add(new CauTraLoi("Auturm",false));
-        answerListenList5.add(new CauTraLoi("Winter",false));
+        answerListenList5.add(new CauTraLoi("using fire",true));
+        answerListenList5.add(new CauTraLoi("complex",false));
+        answerListenList5.add(new CauTraLoi("vulgar",false));
+        answerListenList5.add(new CauTraLoi("primitive",false));
         //cau6
         List<CauTraLoi> answerListenList6 = new ArrayList<>();
-        answerListenList6.add(new CauTraLoi("12",false));
-        answerListenList6.add(new CauTraLoi("2",false));
-        answerListenList6.add(new CauTraLoi("4",false));
-        answerListenList6.add(new CauTraLoi("6",true));
+        answerListenList6.add(new CauTraLoi("durable",false));
+        answerListenList6.add(new CauTraLoi("vegetation",false));
+        answerListenList6.add(new CauTraLoi("weapons",false));
+        answerListenList6.add(new CauTraLoi("stone caves",true));
 
         //cau7
         List<CauTraLoi> answerListenList7 = new ArrayList<>();
-        answerListenList7.add(new CauTraLoi("Information Technology",false));
-        answerListenList7.add(new CauTraLoi("Data Sceince",false));
-        answerListenList7.add(new CauTraLoi("Big Data",true));
-        answerListenList7.add(new CauTraLoi("Block Chain",false));
+        answerListenList7.add(new CauTraLoi("sedentary",false));
+        answerListenList7.add(new CauTraLoi("wandering",false));
+        answerListenList7.add(new CauTraLoi("primitive",true));
+        answerListenList7.add(new CauTraLoi("inquisitive",false));
         //cau8
         List<CauTraLoi> answerListenList8 = new ArrayList<>();
-        answerListenList8.add(new CauTraLoi("Android",true));
-        answerListenList8.add(new CauTraLoi("IOS",false));
-        answerListenList8.add(new CauTraLoi("React Native",false));
-        answerListenList8.add(new CauTraLoi("Flutter",false));
+        answerListenList8.add(new CauTraLoi("families",true));
+        answerListenList8.add(new CauTraLoi("periods",false));
+        answerListenList8.add(new CauTraLoi("herds",false));
+        answerListenList8.add(new CauTraLoi("tools",false));
         //cau9
         List<CauTraLoi> answerListenList9 = new ArrayList<>();
-        answerListenList9.add(new CauTraLoi("Book",false));
-        answerListenList9.add(new CauTraLoi("Pen",false));
-        answerListenList9.add(new CauTraLoi("Door",false));
-        answerListenList9.add(new CauTraLoi("Color",true));
+        answerListenList9.add(new CauTraLoi("people were inventive",false));
+        answerListenList9.add(new CauTraLoi("people were warriors",false));
+        answerListenList9.add(new CauTraLoi("people were crude",false));
+        answerListenList9.add(new CauTraLoi("people stayed indoors ",true));
 
         //cau10
         List<CauTraLoi> answerListenList10 = new ArrayList<>();
-        answerListenList10.add(new CauTraLoi("Dentis",false));
-        answerListenList10.add(new CauTraLoi("Lock",false));
-        answerListenList10.add(new CauTraLoi("Jonh",false));
-        answerListenList10.add(new CauTraLoi("Swim",true));
+        answerListenList10.add(new CauTraLoi("The Neolithic Age",false));
+        answerListenList10.add(new CauTraLoi("The Stone Age",false));
+        answerListenList10.add(new CauTraLoi("The Ice Age",false));
+        answerListenList10.add(new CauTraLoi("The Paleolithic Age",true));
 
-        questionList.add(new CauHoi(1,"What is your name ?",answerListenList1,0));
-        questionList.add(new CauHoi(2,"How often do you go to the office ?",answerListenList2,0));
-        questionList.add(new CauHoi(3,"How many people are there do you have ?",answerListenList3,0));
-        questionList.add(new CauHoi(4,"What is your name ?",answerListenList4,0));
-        questionList.add(new CauHoi(5,"How often do you go to the office ?",answerListenList5,0));
-        questionList.add(new CauHoi(6,"How many people are there do you have ?",answerListenList6,0));
-        questionList.add(new CauHoi(7,"What is your name ?",answerListenList7,0));
-        questionList.add(new CauHoi(8,"How often do you go to the office ?",answerListenList8,0));
-        questionList.add(new CauHoi(9,"How many people are there do you have ?",answerListenList9,0));
-        questionList.add(new CauHoi(10,"How many people are there do you have ?",answerListenList10,0));
+        questionList.add(new CauHoi(1,"Into how many periods was the Stone Age divided ?",answerListenList1,0));
+        questionList.add(new CauHoi(2,"The word “derived” is closest meaning to____.",answerListenList2,0));
+        questionList.add(new CauHoi(3,"Which of the following was developed earliest ?",answerListenList3,0));
+        questionList.add(new CauHoi(4,"Which of the following developments is NOT related to the conditions of the Ice Age ?",answerListenList4,0));
+        questionList.add(new CauHoi(5,"The word “crude” is closest meaning to____.",answerListenList5,0));
+        questionList.add(new CauHoi(6,"The author states that the Stone Age was so named because___.",answerListenList6,0));
+        questionList.add(new CauHoi(7,"The word “nomadic” is closest meaning to_____.",answerListenList7,0));
+        questionList.add(new CauHoi(8,"The word “eras” is closest meaning to____.",answerListenList8,0));
+        questionList.add(new CauHoi(9,"Which of the following best describes the Mesolithic Age ?",answerListenList9,0));
+        questionList.add(new CauHoi(10,"With what subject is the passage mainly concerned ?",answerListenList10,0));
         return questionList;
     }
 
